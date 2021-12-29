@@ -1,0 +1,6 @@
+package systemPathsCollector;
+
+interface OptionsAndSearch
+{
+
+}
