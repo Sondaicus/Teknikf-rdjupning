@@ -10,10 +10,10 @@ import java.util.*;
 
 public class SystemFilesContainer implements ContainerAndOptions
 {
-    private static List <String>
+    private static List <SystemPath>
     allSystemPaths,
-    allFolderPaths,
-    allFilePaths;
+    allSystemPathsFolder,
+    allSystemPathsFile;
     
     
     String fuck = "f";
