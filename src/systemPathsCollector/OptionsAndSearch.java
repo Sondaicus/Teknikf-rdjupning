@@ -3,24 +3,43 @@ package systemPathsCollector;
 
 
 import java.util.*;
+import java.io.*;
 
 
 
 abstract interface OptionsAndSearch
 {
-    default SystemPath[] getChildren()
+    default File[] getChildren(SystemPath currentPath)
+    {
+        CollectChildrenPathsFromFolderInput
+        ccpffi;
+    
+        File[]
+        results;
+    
+    
+    
+        ccpffi = new CollectChildrenPathsFromFolderInput(currentPath);
+        results = ccpffi.getChildren();
+        
+        
+        
+        return results;
+        
+    }
+    
+    default File[] getChildren(File currentPath)
     {
         CollectChildrenPathsFromFolderInput
         ccpffi;
         
-        List
+        File[]
         results;
         
         
         
-        opc = new OptionSettingsCalculation();
-        opc.collectSystemPaths();
-        results = opc.returnSystemPaths();
+        ccpffi = new CollectChildrenPathsFromFolderInput(currentPath);
+        results = ccpffi.getChildren();
         
         
         

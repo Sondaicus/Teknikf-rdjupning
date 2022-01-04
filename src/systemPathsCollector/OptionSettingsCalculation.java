@@ -8,13 +8,13 @@ import java.util.*;
 
 
 
-class OptionSettingsCalculation
+class OptionSettingsCalculation implements OptionsAndSearch
 {
-    private static List <SystemPath>
+    private static ArrayList <SystemPath>
     allCollectedSystemPaths;
     
-    private static SystemPath[]
-    systemPartitionsPaths;
+   /* private static SystemPath[]
+    systemPartitionsPaths;*/
     
     private static File[]
     rootFiles;
@@ -22,7 +22,10 @@ class OptionSettingsCalculation
     
     
     OptionSettingsCalculation()
-    {}
+    {
+        allCollectedSystemPaths = new ArrayList<SystemPath>();
+    
+    }
     
     
     
@@ -44,97 +47,11 @@ class OptionSettingsCalculation
     
     private void getSystemRoots()
     {
-        int
-        systemPartitions,
-        allCollectedSystemPathsSize,
-        currentPartitionIndex;
-    
-    
-    
-        systemPartitions = 0;
         rootFiles = File.listRoots();
-    
-    
-        
-        for(File root : rootFiles)
-        {
-            boolean
-            isPartition;
-    
-            SystemPath
-            currentAbsolutePath;
-            
-            
-            
-            currentAbsolutePath = new SystemPath(root);
-            isPartition = currentAbsolutePath.getIsDirectory();
-            
-            if(isPartition)
-            {
-                ++systemPartitions;
-                
-            }
-            
-        }
-    
-    
-    
-        allCollectedSystemPathsSize = allCollectedSystemPaths.size();
-        systemPartitionsPaths = new SystemPath[systemPartitions];
-        currentPartitionIndex = 0;
-        
-        for(int i = 0; i < allCollectedSystemPathsSize; i++)
-        {
-            boolean
-            isPartition;
-    
-            SystemPath
-            currentAbsolutePath;
-            
-            
-            
-            currentAbsolutePath = allCollectedSystemPaths.get(i);
-            isPartition = currentAbsolutePath.getIsDirectory();
-    
-            if(isPartition)
-            {
-                systemPartitionsPaths[currentPartitionIndex] = currentAbsolutePath;
-                ++currentPartitionIndex;
-                
-            }
-            
-        }
         
     }
     
-    private void addRootsToList()
-    {
-        int
-        rootNumbers;
-        
-        
-        
-        rootNumbers = rootFiles.length;
-        for(int i = 0; i < rootNumbers; i++)
-        {
-            File
-            currentRootFile;
-    
-            SystemPath
-            currentRootSystemPath;
-    
-    
-    
-            currentRootFile = rootFiles[i];
-            currentRootSystemPath = new SystemPath(currentRootFile);
-    
-    
-    
-            addToAllCollectedSystemPaths(currentRootSystemPath);
-            
-        }
-        
-    }
+  
     
     private void addToAllCollectedSystemPaths(SystemPath systemPath)
     {
@@ -142,40 +59,42 @@ class OptionSettingsCalculation
         
     }
     
+    
+    
     private void startFolderSearching()
     {
         int
-        systemPartitionsPathsLength;
+        rootFilesLength;
     
     
-    
-        systemPartitionsPathsLength = systemPartitionsPaths.length;
         
+        rootFilesLength = rootFiles.length;
         
-        
-        for(int i = 0; i < systemPartitionsPathsLength; i++)
+        for(int i = 0; i < rootFilesLength; i++)
         {
             SystemPath
-            currentPartition;
-    
-    
-    
-            currentPartition = systemPartitionsPaths[i];
-            searchFolder(currentPartition);
-            
-        }
-    
+            currentRootSystemPath;
         
+            File
+            currentRootFile;
+        
+        
+        
+            currentRootFile = rootFiles[i];
+            currentRootSystemPath = new SystemPath(currentRootFile);
+        
+        
+        
+            searchFolder(currentRootSystemPath);
+        
+        }
         
     }
+   
     
-    private void searchFolder(SystemPath currentFolder)
+    private void searchFolder(SystemPath currentPath)
     {
-        File
-        currentFolderFileValue;
-        
         boolean
-        currentFolderIsRoot,
         currentFolderIsDirectoryValue;
     
         File[]
@@ -183,51 +102,45 @@ class OptionSettingsCalculation
     
     
     
-        currentFolderIsRoot = currentFolder.getIsRoot();
-        
-        if(!currentFolderIsRoot)
-        {
-            addToAllCollectedSystemPaths(currentFolder);
-            
-            currentFolderIsDirectoryValue = currentFolder.getIsDirectory();
-            
-            if(currentFolderIsDirectoryValue)
-            {
-                currentFolderFileValue = currentFolder.getAbsoluteFile();
-                currentFolderChildren =
-                currentFolderFileValue.listFiles();
-                
-                
-                
-                try
-                {
-                    for(File folderChild : currentFolderChildren)
-                    {
-                        SystemPath
-                        child;
-                        
-                        
-                        
-                        child = new SystemPath(folderChild);
-                        
-                        if(child.getIsFile())
-                        {
-                            addToAllCollectedSystemPaths(child);
-                        }
-                        
-                        if(child.getIsDirectory())
-                        {
-                            searchFolder(child);
-                            
-                        }
-        
-                    }
-                }
-                catch(NullPointerException e)
-                {}
-            }
        
+        addToAllCollectedSystemPaths(currentPath);
+        currentFolderIsDirectoryValue = currentPath.getIsDirectory();
+            
+        if(currentFolderIsDirectoryValue)
+        {
+            currentFolderChildren = getChildren(currentPath);
+            
+            
+            
+            try
+            {
+                for(File folderChild : currentFolderChildren)
+                {
+                    SystemPath
+                    child;
+                    
+                    
+                    
+                    child = new SystemPath(folderChild);
+                    
+                    if(child.getIsFile())
+                    {
+                        addToAllCollectedSystemPaths(child);
+                    }
+                    
+                    if(child.getIsDirectory())
+                    {
+                        searchFolder(child);
+                        
+                    }
+    
+                }
+            }
+            catch(NullPointerException e)
+            {}
         }
+       
+     
     
     }
     
@@ -236,7 +149,6 @@ class OptionSettingsCalculation
     {
         allCollectedSystemPaths.clear();
         rootFiles = new File[0];
-        systemPartitionsPaths = new SystemPath[0];
         
     }
 

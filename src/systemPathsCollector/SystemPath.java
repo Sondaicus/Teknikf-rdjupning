@@ -21,9 +21,7 @@ public class SystemPath
     
     private boolean
     isDirectory,
-    isFile,
-    isHidden,
-    isRoot;
+    isFile;
     
     
     
@@ -42,8 +40,6 @@ public class SystemPath
         setAbsolutePath(file);
         setIsDirectory(file);
         setIsFile(file);
-        setIsHidden(file);
-        setIsRoot(file);
         
     }
     
@@ -56,7 +52,6 @@ public class SystemPath
     private void setAbsoluteString(File file)
     {
         this.absoluteString = file.getAbsolutePath();
-        System.out.println(absoluteString);
         
     }
     
@@ -69,7 +64,6 @@ public class SystemPath
     
         pathValue = file.getAbsolutePath();
         this.absolutePath = FileSystems.getDefault().getPath(pathValue);
-        System.out.println(absoluteString);
         
     }
     
@@ -82,34 +76,6 @@ public class SystemPath
     private void setIsFile(File file)
     {
         this.isFile = file.isFile();
-        
-    }
-    
-    private void setIsHidden(File file)
-    {
-        this.isHidden = file.isHidden();
-        
-    }
-    
-    private void setIsRoot(File file)
-    {
-        File
-        parentFile;
-    
-    
-    
-        parentFile = file.getParentFile();
-        
-        if(parentFile == null)
-        {
-            this.isRoot = true;
-            
-        }
-        else
-        {
-            this.isRoot = false;
-        
-        }
         
     }
     
@@ -142,18 +108,6 @@ public class SystemPath
     boolean getIsFile()
     {
         return isFile;
-        
-    }
-    
-    boolean getIsHidden()
-    {
-        return isHidden;
-        
-    }
-    
-    boolean getIsRoot()
-    {
-        return isRoot;
         
     }
     
