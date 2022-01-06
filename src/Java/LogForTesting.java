@@ -26,7 +26,7 @@ public class LogForTesting
     public LogForTesting()
     {
         nanoToStandardPOWLong = (int)Math.pow(10, 9);
-        endMessageStarter = "\n" + "\n" + "Total runtime: ";
+        endMessageStarter = "Total runtime: ";
         sectionSpacer = "            ";
         
     }
@@ -96,41 +96,73 @@ public class LogForTesting
                 
                 int
                 procentalInt;
+                
+                double
+                procentalDoubleHolder;
+                
+                boolean
+                proceed;
+    
+    
+    
+                procentalInt = 0;
     
                 
                 
                 if(i == advancementInt)
                 {
-                    procentalInt = (int) procentalDouble * 100;
+                    if(i != 0)
+                    {
+                        procentalDoubleHolder = procentalDouble * 100;
+                        procentalDoubleHolder = procentalDoubleHolder + 0.5;
+                        procentalInt = (int) procentalDoubleHolder;
     
-                    procentalDouble = procentalDouble + 0.01;
-                    advancementDouble = contentLength * procentalDouble;
-                    advancementInt = (int) advancementDouble;
+                        procentalDoubleHolder = procentalInt;
+                        procentalDoubleHolder = procentalDoubleHolder / 100;
+                        procentalDouble = procentalDoubleHolder + 0.01;
+                        advancementDouble = contentLength * procentalDouble;
+                        advancementInt = (int) advancementDouble;
+    
+                        proceed = true;
+                        
+                    }
+                    else
+                    {
+                        proceed = false;
+                        
+                    }
                     
                 }
                 else
                 {
                     procentalDouble = (double) i;
                     procentalDouble = procentalDouble / contentLength;
-                    advancementDouble = procentalDouble;
-                    advancementInt = (int) advancementDouble;
                     
-                    procentalInt = (int) procentalDouble * 100;
+                    procentalDoubleHolder = procentalDouble * 100;
+                    procentalDoubleHolder = procentalDoubleHolder + 0.5;
+                    procentalInt = (int) procentalDoubleHolder;
+    
+                    procentalDoubleHolder = procentalInt;
+                    procentalDoubleHolder = procentalDoubleHolder / 100;
+                    procentalDouble = procentalDoubleHolder + 0.01;
+                    advancementDouble = contentLength * procentalDouble;
+                    advancementInt = (int) advancementDouble;
+    
+                    proceed = true;
                     
                 }
-    
-    
-                
-                displayProcentalText = sectionSpacer + procentalInt + "%";
-                
-                
-                
-                System.out.println(displayProcentalText);
+   
     
                 
+                if(proceed)
+                {
+                    displayProcentalText = sectionSpacer + procentalInt + "%";
     
-                advancementDouble = advancementInt;
-                procentalDouble = advancementDouble / 100;
+    
+                    
+                    System.out.println(displayProcentalText);
+                    
+                }
                 
             }
             
@@ -142,6 +174,7 @@ public class LogForTesting
     
     
     
+        endMessageStarter = "\n" + "\n" + endMessageStarter;
         endTimer(taskName, fileName);
         
     }

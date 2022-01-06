@@ -11,7 +11,8 @@ import java.io.*;
 public class SystemPath
 {
     private String
-    absoluteString;
+    absoluteString,
+    fileNameString;
     
     private Path
     absolutePath;
@@ -25,9 +26,18 @@ public class SystemPath
     
     
     
+    SystemPath()
+    {}
+    
     SystemPath(File file)
     {
         setVariables(file);
+        
+    }
+    
+    SystemPath(String filePath)
+    {
+        setVariables(filePath);
         
     }
     
@@ -35,6 +45,25 @@ public class SystemPath
     
     private void setVariables(File file)
     {
+        setAbsoluteFile(file);
+        setAbsoluteString(file);
+        setAbsolutePath(file);
+        setIsDirectory(file);
+        setIsFile(file);
+        
+    }
+    
+    private void setVariables(String filePath)
+    {
+        File
+        file;
+    
+    
+    
+        file = new File(filePath);
+        
+        
+        
         setAbsoluteFile(file);
         setAbsoluteString(file);
         setAbsolutePath(file);
@@ -52,6 +81,21 @@ public class SystemPath
     private void setAbsoluteString(File file)
     {
         this.absoluteString = file.getAbsolutePath();
+        
+    }
+    
+    private void setFileNameString(File file)
+    {
+        String
+        fileNameResult;
+    
+    
+    
+        fileNameResult = file.getName();
+        
+        
+        
+        this.fileNameString = fileNameResult;
         
     }
     
@@ -90,6 +134,12 @@ public class SystemPath
     String getAbsoluteString()
     {
         return absoluteString;
+        
+    }
+    
+    String getFileNameString()
+    {
+        return fileNameString;
         
     }
     

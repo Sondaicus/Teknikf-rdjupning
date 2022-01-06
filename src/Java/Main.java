@@ -18,10 +18,14 @@ public class Main
         String[]
         results,
         resultsFiles,
-        resultsFolders;
+        resultsFolders,
+        test;
     
         LogForTesting
         lft;
+        
+        int
+        arraySize;
     
     
     
@@ -29,7 +33,7 @@ public class Main
 	    sfc = new SystemFilesContainer();
     
     
-    
+    /*
         lft.startTimer("reading files.");
         sfc.readFromSystem();
         lft.endTimer("reading files.", "readingLog");
@@ -55,6 +59,31 @@ public class Main
         lft.printListLog(resultsFiles, "resultsFiles", "printing all files.");
         
         lft.printListLog(resultsFolders, "resultsFolders", "printing all folders.");
+       
+     */
+    
+    
+    
+        arraySize = 80;
+    
+    
+        
+        test = new String[arraySize];
+        
+        for(int i = 0; i < arraySize; i++)
+        {
+            String f = "f";
+    
+    
+            test[i] = f;
+            
+        }
+    
+    
+        lft.printListLog(test, "test", "testing.");
+        
+        
+        
         
     }
     
