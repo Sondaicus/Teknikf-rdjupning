@@ -73,7 +73,7 @@ public class Printer
         
         
         
-        folderPath = "C:\\Users\\axel\\IdeaProjects\\Nackademin\\Kursuppgifter\\Teknikfördjupning\\Projektmapp\\Teknikf-rdjupning\\";
+        folderPath = "C:\\Users\\axel\\IdeaProjects\\Nackademin\\Kursuppgifter\\Teknikfördjupning\\Projektmapp\\Teknikf-rdjupning\\logs\\";
         
         
         

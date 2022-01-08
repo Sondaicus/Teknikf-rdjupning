@@ -47,6 +47,7 @@ public class SystemPath
     {
         setAbsoluteFile(file);
         setAbsoluteString(file);
+        setFileNameString(file);
         setAbsolutePath(file);
         setIsDirectory(file);
         setIsFile(file);
@@ -66,6 +67,7 @@ public class SystemPath
         
         setAbsoluteFile(file);
         setAbsoluteString(file);
+        setFileNameString(file);
         setAbsolutePath(file);
         setIsDirectory(file);
         setIsFile(file);

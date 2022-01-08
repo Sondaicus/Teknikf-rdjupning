@@ -39,8 +39,18 @@ class OptionSettingsCalculation implements OptionsAndSearch
     
     void collectSystemPaths()
     {
+        String
+        filePathTest;
+    
+        
+    
+        filePathTest = "C:\\Users\\axel\\IdeaProjects";
         getSystemRoots();
-        startFolderSearching();
+        /*startFolderSearching();*/
+    
+        startFolderSearchingTest(filePathTest);
+        
+        
     
     }
     
@@ -56,6 +66,18 @@ class OptionSettingsCalculation implements OptionsAndSearch
     private void addToAllCollectedSystemPaths(SystemPath systemPath)
     {
         allCollectedSystemPaths.add(systemPath);
+        
+    }
+    
+    private void startFolderSearchingTest(String startPath)
+    {
+        SystemPath
+        thisSystemPath;
+    
+    
+        
+        thisSystemPath = new SystemPath(startPath);
+        searchFolder(thisSystemPath);
         
     }
     

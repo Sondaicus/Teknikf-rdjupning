@@ -175,14 +175,14 @@ public class LogForTesting
     
     
         endMessageStarter = "\n" + "\n" + endMessageStarter;
-        endTimer(taskName, fileName);
+        endTimer(taskName, fileName, true);
         
     }
     
     public void startTimer(String taskName)
     {
         System.out.println("Start: " + taskName);
-    
+        
     
     
         startTime = System.nanoTime();
@@ -190,6 +190,12 @@ public class LogForTesting
     }
     
     public void endTimer(String taskName, String fileName) throws IOException
+    {
+        endTimer(taskName, fileName, false);
+    
+    }
+    
+    public void endTimer(String taskName, String fileName, boolean append) throws IOException
     {
         String
         endMessageFinal;
@@ -207,7 +213,7 @@ public class LogForTesting
         endTimeDoubleHolder = endTime;
         totalTime = endTimeDoubleHolder / nanoToStandardPOWLong;
         endMessageFinal = endMessageStarter + totalTime + " seconds";
-        logger.print(endMessageFinal, true);
+        logger.print(endMessageFinal, append);
         
         
         
