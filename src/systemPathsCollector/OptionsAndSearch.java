@@ -9,9 +9,9 @@ import java.io.*;
 
 abstract interface OptionsAndSearch
 {
-    default File[] getChildren(SystemPath currentPath)
+    default File[] getChildren(SystemPath_Alpha currentPath)
     {
-        CollectChildrenPathsFromFolderInput
+        CollectChildrenPaths
         ccpffi;
     
         File[]
@@ -19,7 +19,7 @@ abstract interface OptionsAndSearch
     
     
     
-        ccpffi = new CollectChildrenPathsFromFolderInput(currentPath);
+        ccpffi = new CollectChildrenPaths(currentPath);
         results = ccpffi.getChildren();
         
         
@@ -30,7 +30,7 @@ abstract interface OptionsAndSearch
     
     default File[] getChildren(File currentPath)
     {
-        CollectChildrenPathsFromFolderInput
+        CollectChildrenPaths
         ccpffi;
         
         File[]
@@ -38,7 +38,7 @@ abstract interface OptionsAndSearch
         
         
         
-        ccpffi = new CollectChildrenPathsFromFolderInput(currentPath);
+        ccpffi = new CollectChildrenPaths(currentPath);
         results = ccpffi.getChildren();
         
         

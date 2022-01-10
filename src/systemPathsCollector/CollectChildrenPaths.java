@@ -2,28 +2,25 @@ package systemPathsCollector;
 
 
 
-import systemPathsCollector.OptionsAndSearch;
-import java.nio.file.*;
-import java.util.*;
 import java.io.*;
 
 
 
-class CollectChildrenPathsFromFolderInput
+class CollectChildrenPaths
 {
     private File
     pathValueFile;
     
-    CollectChildrenPathsFromFolderInput()
+    CollectChildrenPaths()
     {}
     
-    CollectChildrenPathsFromFolderInput(SystemPath input)
+    CollectChildrenPaths(SystemPath_Alpha input)
     {
         setFile(input);
         
     }
     
-    CollectChildrenPathsFromFolderInput(File input)
+    CollectChildrenPaths(File input)
     {
         setFile(input);
         
@@ -31,7 +28,7 @@ class CollectChildrenPathsFromFolderInput
     
     
     
-    void setFile(SystemPath input)
+    void setFile(SystemPath_Alpha input)
     {
         this.pathValueFile = input.getAbsoluteFile();
         

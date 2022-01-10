@@ -4,16 +4,14 @@ package Java;
 
 import systemPathsCollector.*;
 import java.io.IOException;
-import java.util.*;
-
 
 
 public class Main
 {
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args) throws IOException, SystemNotReadException
     {
-        SystemFilesContainer
-        sfc;
+        SystemFilesContainer_Alpha
+        sfcA;
         
         String[]
         results,
@@ -30,9 +28,15 @@ public class Main
     
     
         lft = new LogForTesting();
-	    sfc = new SystemFilesContainer();
+	    sfcA = new SystemFilesContainer_Alpha();
     
     
+    
+        sfcA.readFromSystem();
+    
+        results = sfcA.stringArrayFiles_ExcludeFileExtension_IgnoreCase("main");
+    
+        lft.printListLog(results, "results", "ass");
   
         
     }

@@ -1,8 +1,0 @@
-package systemPathsCollector;
-
-
-
-interface OptionsAndSystemPath
-{
-
-}

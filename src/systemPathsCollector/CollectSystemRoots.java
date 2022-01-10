@@ -1,7 +1,0 @@
-package systemPathsCollector;
-
-
-class CollectSystemRoots
-{
-
-}

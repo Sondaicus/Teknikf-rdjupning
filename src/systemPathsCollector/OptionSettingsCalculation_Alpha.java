@@ -8,28 +8,25 @@ import java.util.*;
 
 
 
-class OptionSettingsCalculation implements OptionsAndSearch
+class OptionSettingsCalculation_Alpha implements OptionsAndSearch
 {
-    private static ArrayList <SystemPath>
+    protected static ArrayList <SystemPath_Alpha>
     allCollectedSystemPaths;
     
-   /* private static SystemPath[]
-    systemPartitionsPaths;*/
-    
-    private static File[]
-    rootFiles;
+    protected static File[]
+    startDirectories;
     
     
     
-    OptionSettingsCalculation()
+    OptionSettingsCalculation_Alpha()
     {
-        allCollectedSystemPaths = new ArrayList<SystemPath>();
+        allCollectedSystemPaths = new ArrayList<SystemPath_Alpha>();
     
     }
     
     
     
-    List<SystemPath> returnSystemPaths()
+    protected List<SystemPath_Alpha> returnSystemPaths()
     {
         return allCollectedSystemPaths;
         
@@ -37,7 +34,7 @@ class OptionSettingsCalculation implements OptionsAndSearch
     
     
     
-    void collectSystemPaths()
+    protected void collectSystemPaths()
     {
         String
         filePathTest;
@@ -45,56 +42,65 @@ class OptionSettingsCalculation implements OptionsAndSearch
         
     
         filePathTest = "C:\\Users\\axel\\IdeaProjects";
-        getSystemRoots();
-        /*startFolderSearching();*/
+        setStartDirectories();
+      
+        
     
         startFolderSearchingTest(filePathTest);
-        
-        
     
     }
     
     
-    private void getSystemRoots()
-    {
-        rootFiles = File.listRoots();
-        
-    }
     
-  
-    
-    private void addToAllCollectedSystemPaths(SystemPath systemPath)
+    protected void startFolderSearchingTest(String startPath)
     {
-        allCollectedSystemPaths.add(systemPath);
-        
-    }
-    
-    private void startFolderSearchingTest(String startPath)
-    {
-        SystemPath
+        SystemPath_Alpha
         thisSystemPath;
-    
-    
         
-        thisSystemPath = new SystemPath(startPath);
+        
+        
+        thisSystemPath = new SystemPath_Alpha(startPath);
         searchFolder(thisSystemPath);
         
     }
     
     
     
-    private void startFolderSearching()
+    
+    protected void setStartDirectories()
+    {
+        getSystemRoots();
+        
+    }
+    
+    
+    protected void getSystemRoots()
+    {
+        startDirectories = File.listRoots();
+        
+    }
+    
+    
+    
+    protected void addToAllCollectedSystemPaths(SystemPath_Alpha systemPath)
+    {
+        allCollectedSystemPaths.add(systemPath);
+        
+    }
+    
+    
+    protected void startSystemSearching()
     {
         int
         rootFilesLength;
     
     
         
-        rootFilesLength = rootFiles.length;
+        rootFilesLength = startDirectories.length;
         
         for(int i = 0; i < rootFilesLength; i++)
         {
-            SystemPath
+            SystemPath_Alpha
             currentRootSystemPath;
         
             File
@@ -102,8 +108,8 @@ class OptionSettingsCalculation implements OptionsAndSearch
         
         
         
-            currentRootFile = rootFiles[i];
-            currentRootSystemPath = new SystemPath(currentRootFile);
+            currentRootFile = startDirectories[i];
+            currentRootSystemPath = new SystemPath_Alpha(currentRootFile);
         
         
         
@@ -112,38 +118,38 @@ class OptionSettingsCalculation implements OptionsAndSearch
         }
         
     }
-   
     
-    private void searchFolder(SystemPath currentPath)
+    
+    protected void searchFolder(SystemPath_Alpha currentPath)
     {
         boolean
-        currentFolderIsDirectoryValue;
+        currentFileIsDirectory;
     
         File[]
-        currentFolderChildren;
+        currentDirectoryChildren;
     
     
     
        
         addToAllCollectedSystemPaths(currentPath);
-        currentFolderIsDirectoryValue = currentPath.getIsDirectory();
+        currentFileIsDirectory = currentPath.getIsDirectory();
             
-        if(currentFolderIsDirectoryValue)
+        if(currentFileIsDirectory)
         {
-            currentFolderChildren = getChildren(currentPath);
+            currentDirectoryChildren = getChildren(currentPath);
             
             
             
             try
             {
-                for(File folderChild : currentFolderChildren)
+                for(File folderChild : currentDirectoryChildren)
                 {
-                    SystemPath
+                    SystemPath_Alpha
                     child;
                     
                     
                     
-                    child = new SystemPath(folderChild);
+                    child = new SystemPath_Alpha(folderChild);
                     
                     if(child.getIsFile())
                     {
@@ -166,11 +172,10 @@ class OptionSettingsCalculation implements OptionsAndSearch
     
     }
     
-    
-    void clearList()
+    protected void clearList()
     {
         allCollectedSystemPaths.clear();
-        rootFiles = new File[0];
+        startDirectories = new File[0];
         
     }
 
