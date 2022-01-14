@@ -3,22 +3,48 @@ package Java;
 
 
 import systemPathsCollector.*;
+import java.io.IOException;
 
 
 
 public class Main
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws SystemPathsCollectorException, IOException
     {
-        SystemFilesContainer
-        sfc;
+        LogForTesting
+        lft;
+    
+        Printer
+        prn;
+    
+        SystemFilesContainer_Alpha
+        sfcA;
+    
+        String
+        input;
+    
+        String[]
+        inputs,
+        results;
+    
+    
+    
+        lft = new LogForTesting();
+        prn = new Printer();
         
         
         
-	    sfc = new SystemFilesContainer();
-        sfc.readFromSystem();
-        sfc.returnAllResultsAsList("systemPathsCollector");
+        sfcA = new SystemFilesContainer_Alpha();
+        sfcA.readFromSystem();
+        results = sfcA.stringArrayAllPaths_CompareFileExtensions("txt");
+    
+    
+    
+        lft.printListLog(results, "results", "log");
         
         
+    
     }
+    
+ 
 }
