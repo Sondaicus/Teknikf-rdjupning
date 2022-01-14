@@ -6,5 +6,5 @@ public class SystemNotReadException extends SystemPathsCollectorException
 {
     SystemNotReadException()
     {}
-    
+
 }

@@ -3,6 +3,7 @@ package systemPathsCollector;
 
 
 import java.io.*;
+import java.nio.file.*;
 import java.util.*;
 
 
@@ -25,7 +26,7 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
     
     
     
-    List<SystemPath_Alpha> returnSystemPaths()
+    protected List<SystemPath_Alpha> returnSystemPaths()
     {
         return allCollectedSystemPaths;
         
@@ -72,18 +73,24 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         
     }
     
+
+
     protected void getSystemRoots()
     {
         startDirectories = File.listRoots();
         
     }
     
+    
+    
     protected void addToAllCollectedSystemPaths(SystemPath_Alpha systemPath)
     {
         allCollectedSystemPaths.add(systemPath);
         
     }
-    
+   
+   
+   
     protected void startSystemSearching()
     {
         int
@@ -114,6 +121,7 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         
     }
     
+
     protected void searchFolder(SystemPath_Alpha currentPath)
     {
         boolean
@@ -124,7 +132,7 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         currentDirectoryChildren;
     
     
-    
+
         proceedWithSystemPath = checkApprovedSystemPath(currentPath);
         
         

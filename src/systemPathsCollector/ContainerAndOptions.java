@@ -2,16 +2,15 @@ package systemPathsCollector;
 
 
 
-import java.nio.file.*;
 import java.util.*;
 
 
 
 abstract interface ContainerAndOptions
 {
-    default List sendAndReceive()
+    default List<SystemPath_Alpha> sendAndReceive()
     {
-        OptionSettingsCalculation
+        OptionSettingsCalculation_Alpha
         opc;
         
         List
@@ -19,7 +18,7 @@ abstract interface ContainerAndOptions
     
         
         
-        opc = new OptionSettingsCalculation();
+        opc = new OptionSettingsCalculation_Alpha();
         opc.collectSystemPaths();
         results = opc.returnSystemPaths();
         
