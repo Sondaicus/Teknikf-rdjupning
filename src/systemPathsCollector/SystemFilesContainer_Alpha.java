@@ -10,7 +10,7 @@ import java.util.*;
 public class SystemFilesContainer_Alpha implements ContainerAndOptions
 {
     /*Start: global variables.*/
-        protected static List <SystemPath_Alpha>
+        protected static List <SystemPath>
         allSystemPaths,
         allSystemPathsDirectory,
         allSystemPathsFile;
@@ -4727,7 +4727,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
     
         /*Start: return List contents.*/
             /*Start: String[]s.*/
-                protected String[] returnListContentAsStringArray(List<SystemPath_Alpha> inputList)
+                protected String[] returnListContentAsStringArray(List<SystemPath> inputList)
                 {
                     String[]
                     results;
@@ -4742,12 +4742,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected String[] returnListContentAsStringArray(String inputString, List<SystemPath_Alpha> inputList)
+                protected String[] returnListContentAsStringArray(String inputString, List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -4761,12 +4761,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected String[] returnListContentAsStringArray(String[] inputStrings, List<SystemPath_Alpha> inputList)
+                protected String[] returnListContentAsStringArray(String[] inputStrings, List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -4780,13 +4780,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
             
-                protected String[] returnListContentAsStringArray(String inputString, List<SystemPath_Alpha> inputList,
+                protected String[] returnListContentAsStringArray(String inputString, List<SystemPath> inputList,
                                                                   boolean searchForFile, boolean useFileExtension)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
             
             
@@ -4800,13 +4800,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
                 
-                protected String[] returnListContentAsStringArray(String[] inputStrings, List<SystemPath_Alpha> inputList,
+                protected String[] returnListContentAsStringArray(String[] inputStrings, List<SystemPath> inputList,
                                                                   boolean searchForFile, boolean useFileExtension)
                 {
                     String[]
                     results;
             
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
             
             
@@ -4820,14 +4820,14 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected String[] returnListContentAsStringArray(String inputString, List<SystemPath_Alpha> inputList,
+                protected String[] returnListContentAsStringArray(String inputString, List<SystemPath> inputList,
                                                                   boolean searchForFile, boolean useFileExtension,
                                                                   boolean ignoreCase)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -4841,14 +4841,14 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
                 
-                protected String[] returnListContentAsStringArray(String[] inputStrings, List<SystemPath_Alpha> inputList,
+                protected String[] returnListContentAsStringArray(String[] inputStrings, List<SystemPath> inputList,
                                                                   boolean searchForFile, boolean useFileExtension,
                                                                   boolean ignoreCase)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -4862,7 +4862,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected String[] returnListContentAsStringArray(String inputString, List<SystemPath_Alpha> inputList,
+                protected String[] returnListContentAsStringArray(String inputString, List<SystemPath> inputList,
                                                               boolean searchForFile, boolean useFileExtension,
                                                               boolean ignoreCase,
                                                               boolean compareFileExtensions)
@@ -4870,7 +4870,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -4885,7 +4885,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray(String[] inputStrings,
-                                                              List<SystemPath_Alpha> inputList,
+                                                              List<SystemPath> inputList,
                                                               boolean searchForFile, boolean useFileExtension,
                                                               boolean ignoreCase,
                                                               boolean compareFileExtensions)
@@ -4893,7 +4893,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -4908,12 +4908,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected String[] returnListContentAsStringArray_ExcludeFileExtension(String inputString,
-                                                                                       List<SystemPath_Alpha> inputList)
+                                                                                       List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -4928,12 +4928,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray_ExcludeFileExtension(String[] inputStrings,
-                                                                                       List<SystemPath_Alpha> inputList)
+                                                                                       List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -4948,12 +4948,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected String[] returnListContentAsStringArray_ExcludeFileExtension(String inputString,
-                                                                                       List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                       List<SystemPath> inputList, boolean ignoreCase)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -4968,12 +4968,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray_ExcludeFileExtension(String[] inputStrings,
-                                                                                       List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                       List<SystemPath> inputList, boolean ignoreCase)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -4988,12 +4988,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray_CompareFileExtensions(String inputString,
-                                                                                           List<SystemPath_Alpha> inputList)
+                                                                                           List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5008,12 +5008,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray_CompareFileExtensions(String[] inputStrings,
-                                                                                           List<SystemPath_Alpha> inputList)
+                                                                                           List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5028,12 +5028,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray_CompareFileExtensions(String inputString,
-                                                                                           List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                           List<SystemPath> inputList, boolean ignoreCase)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5048,12 +5048,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray_CompareFileExtensions(String[] inputStrings,
-                                                                                           List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                           List<SystemPath> inputList, boolean ignoreCase)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5068,12 +5068,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected String[] returnListContentAsStringArray_IgnoreCase(String inputString,
-                                                                             List<SystemPath_Alpha> inputList)
+                                                                             List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5088,12 +5088,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray_IgnoreCase(String[] inputStrings,
-                                                                             List<SystemPath_Alpha> inputList)
+                                                                             List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5108,13 +5108,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray_IgnoreCase(String inputString,
-                                                                             List<SystemPath_Alpha> inputList,
+                                                                             List<SystemPath> inputList,
                                                                             boolean searchForFile, boolean useFileExtension)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5129,13 +5129,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray_IgnoreCase(String[] inputStrings,
-                                                                            List<SystemPath_Alpha> inputList,
+                                                                            List<SystemPath> inputList,
                                                                             boolean searchForFile, boolean useFileExtension)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5150,12 +5150,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected String[] returnListContentAsStringArray_ExcludeFileExtension_IgnoreCase(String inputString,
-                                                                                                  List<SystemPath_Alpha> inputList)
+                                                                                                  List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5170,12 +5170,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected String[] returnListContentAsStringArray_ExcludeFileExtension_IgnoreCase(String[] inputStrings,
-                                                                             List<SystemPath_Alpha> inputList)
+                                                                             List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5190,12 +5190,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected String[] returnListContentAsStringArray_IgnoreCase_CompareFileExtensions(String inputString,
-                                                                                               List<SystemPath_Alpha> inputList)
+                                                                                               List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5210,12 +5210,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected String[] returnListContentAsStringArray_IgnoreCase_CompareFileExtensions(String[] inputStrings,
-                                                                                               List<SystemPath_Alpha> inputList)
+                                                                                               List<SystemPath> inputList)
                 {
                     String[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5231,7 +5231,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
             /*End: String[]s.*/
     
             /*Start: File[]s.*/
-                protected File[] returnListContentAsFileArray(List<SystemPath_Alpha> inputList)
+                protected File[] returnListContentAsFileArray(List<SystemPath> inputList)
                 {
                     File[]
                     results;
@@ -5246,12 +5246,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected File[] returnListContentAsFileArray(String inputString, List<SystemPath_Alpha> inputList)
+                protected File[] returnListContentAsFileArray(String inputString, List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5265,12 +5265,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected File[] returnListContentAsFileArray(String[] inputStrings, List<SystemPath_Alpha> inputList)
+                protected File[] returnListContentAsFileArray(String[] inputStrings, List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5284,13 +5284,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected File[] returnListContentAsFileArray(String inputString, List<SystemPath_Alpha> inputList,
+                protected File[] returnListContentAsFileArray(String inputString, List<SystemPath> inputList,
                                                               boolean searchForFile, boolean useFileExtension)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5304,13 +5304,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
                 
-                protected File[] returnListContentAsFileArray(String[] inputStrings, List<SystemPath_Alpha> inputList,
+                protected File[] returnListContentAsFileArray(String[] inputStrings, List<SystemPath> inputList,
                                                               boolean searchForFile, boolean useFileExtension)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5324,13 +5324,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected File[] returnListContentAsFileArray(String inputString, List<SystemPath_Alpha> inputList,
+                protected File[] returnListContentAsFileArray(String inputString, List<SystemPath> inputList,
                                                               boolean searchForFile, boolean useFileExtension, boolean ignoreCase)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5344,13 +5344,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
                 
-                protected File[] returnListContentAsFileArray(String[] inputStrings, List<SystemPath_Alpha> inputList,
+                protected File[] returnListContentAsFileArray(String[] inputStrings, List<SystemPath> inputList,
                                                               boolean searchForFile, boolean useFileExtension, boolean ignoreCase)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5364,7 +5364,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected File[] returnListContentAsFileArray(String inputString, List<SystemPath_Alpha> inputList,
+                protected File[] returnListContentAsFileArray(String inputString, List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension,
                                                                  boolean ignoreCase,
                                                                  boolean compareFileExtensions)
@@ -5372,7 +5372,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5387,7 +5387,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray(String[] inputStrings,
-                                                                 List<SystemPath_Alpha> inputList,
+                                                                 List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension,
                                                                  boolean ignoreCase,
                                                                  boolean compareFileExtensions)
@@ -5395,7 +5395,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5410,12 +5410,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected File[] returnListContentAsFileArray_ExcludeFileExtension(String inputString,
-                                                                                  List<SystemPath_Alpha> inputList)
+                                                                                  List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5430,12 +5430,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_ExcludeFileExtension(String[] inputStrings,
-                                                                                  List<SystemPath_Alpha> inputList)
+                                                                                  List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5450,13 +5450,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected File[] returnListContentAsFileArray_ExcludeFileExtension(String inputString,
-                                                                                   List<SystemPath_Alpha> inputList,
+                                                                                   List<SystemPath> inputList,
                                                                                    boolean ignoreCase)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5471,13 +5471,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_ExcludeFileExtension(String[] inputStrings,
-                                                                                   List<SystemPath_Alpha> inputList,
+                                                                                   List<SystemPath> inputList,
                                                                                    boolean ignoreCase)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5492,12 +5492,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected File[] returnListContentAsFileArray_IgnoreCase(String inputString,
-                                                                         List<SystemPath_Alpha> inputList)
+                                                                         List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5512,12 +5512,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_IgnoreCase(String[] inputStrings,
-                                                                         List<SystemPath_Alpha> inputList)
+                                                                         List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5532,13 +5532,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_IgnoreCase(String inputString,
-                                                                         List<SystemPath_Alpha> inputList,
+                                                                         List<SystemPath> inputList,
                                                                         boolean searchForFile, boolean useFileExtension)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5553,13 +5553,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_IgnoreCase(String[] inputStrings,
-                                                                         List<SystemPath_Alpha> inputList,
+                                                                         List<SystemPath> inputList,
                                                                         boolean searchForFile, boolean useFileExtension)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5574,12 +5574,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_CompareFileExtensions(String inputString,
-                                                                                       List<SystemPath_Alpha> inputList)
+                                                                                       List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5594,12 +5594,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_CompareFileExtensions(String[] inputStrings,
-                                                                                       List<SystemPath_Alpha> inputList)
+                                                                                       List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5614,12 +5614,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_CompareFileExtensions(String inputString,
-                                                                                       List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                       List<SystemPath> inputList, boolean ignoreCase)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5634,12 +5634,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_CompareFileExtensions(String[] inputStrings,
-                                                                                       List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                       List<SystemPath> inputList, boolean ignoreCase)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5654,12 +5654,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected File[] returnListContentAsFileArray_ExcludeFileExtension_IgnoreCase(String inputString,
-                                                                         List<SystemPath_Alpha> inputList)
+                                                                         List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5674,12 +5674,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_ExcludeFileExtension_IgnoreCase(String[] inputStrings,
-                                                                         List<SystemPath_Alpha> inputList)
+                                                                         List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5694,12 +5694,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected File[] returnListContentAsFileArray_IgnoreCase_CompareFileExtensions(String inputString,
-                                                                                                  List<SystemPath_Alpha> inputList)
+                                                                                                  List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5714,12 +5714,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected File[] returnListContentAsFileArray_IgnoreCase_CompareFileExtensions(String[] inputStrings,
-                                                                                                  List<SystemPath_Alpha> inputList)
+                                                                                                  List<SystemPath> inputList)
                 {
                     File[]
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5735,7 +5735,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
             /*End: File[]s.*/
     
             /*Start: List<String>s.*/
-                protected List<String> returnListContentAsStringList(List<SystemPath_Alpha> inputList)
+                protected List<String> returnListContentAsStringList(List<SystemPath> inputList)
                 {
                     List<String>
                     results;
@@ -5750,12 +5750,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
                 }
     
-                protected List<String> returnListContentAsStringList(String inputString, List<SystemPath_Alpha> inputList)
+                protected List<String> returnListContentAsStringList(String inputString, List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5769,12 +5769,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected List<String> returnListContentAsStringList(String[] inputStrings, List<SystemPath_Alpha> inputList)
+                protected List<String> returnListContentAsStringList(String[] inputStrings, List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5789,13 +5789,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected List<String> returnListContentAsStringList(String inputString, List<SystemPath_Alpha> inputList,
+                protected List<String> returnListContentAsStringList(String inputString, List<SystemPath> inputList,
                                                                      boolean searchForFile, boolean useFileExtension)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5809,13 +5809,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected List<String> returnListContentAsStringList(String[] inputStrings, List<SystemPath_Alpha> inputList,
+                protected List<String> returnListContentAsStringList(String[] inputStrings, List<SystemPath> inputList,
                                                                      boolean searchForFile, boolean useFileExtension)
                 {
                     List<String>
                     results;
     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
     
     
@@ -5830,13 +5830,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected List<String> returnListContentAsStringList(String inputString, List<SystemPath_Alpha> inputList,
+                protected List<String> returnListContentAsStringList(String inputString, List<SystemPath> inputList,
                                                                      boolean searchForFile, boolean useFileExtension,  boolean ignoreCase)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5850,14 +5850,14 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
                 
-                protected List<String> returnListContentAsStringList(String[] inputStrings, List<SystemPath_Alpha> inputList,
+                protected List<String> returnListContentAsStringList(String[] inputStrings, List<SystemPath> inputList,
                                                                      boolean searchForFile, boolean useFileExtension,
                                                                      boolean ignoreCase)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5872,7 +5872,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected List<String> returnListContentAsStringList(String inputString, List<SystemPath_Alpha> inputList,
+                protected List<String> returnListContentAsStringList(String inputString, List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension,
                                                                  boolean ignoreCase,
                                                                  boolean compareFileExtensions)
@@ -5880,7 +5880,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5895,7 +5895,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<String> returnListContentAsStringList(String[] inputStrings,
-                                                                 List<SystemPath_Alpha> inputList,
+                                                                 List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension,
                                                                  boolean ignoreCase,
                                                                  boolean compareFileExtensions)
@@ -5903,7 +5903,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5918,12 +5918,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<String> returnListContentAsStringList_ExcludeFileExtension(String inputString,
-                                                                                         List<SystemPath_Alpha> inputList)
+                                                                                         List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5938,12 +5938,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<String> returnListContentAsStringList_ExcludeFileExtension(String[] inputStrings,
-                                                                                          List<SystemPath_Alpha> inputList)
+                                                                                          List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5959,13 +5959,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<String> returnListContentAsStringList_ExcludeFileExtension(String inputString,
-                                                                                          List<SystemPath_Alpha> inputList,
+                                                                                          List<SystemPath> inputList,
                                                                                           boolean ignoreCase)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -5980,13 +5980,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<String> returnListContentAsStringList_ExcludeFileExtension(String[] inputStrings,
-                                                                                          List<SystemPath_Alpha> inputList,
+                                                                                          List<SystemPath> inputList,
                                                                                           boolean ignoreCase)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6002,12 +6002,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<String> returnListContentAsStringList_IgnoreCase(String inputString,
-                                                                                List<SystemPath_Alpha> inputList)
+                                                                                List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6022,12 +6022,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<String> returnListContentAsStringList_IgnoreCase(String[] inputStrings,
-                                                                                List<SystemPath_Alpha> inputList)
+                                                                                List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6043,13 +6043,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<String> returnListContentAsStringList_IgnoreCase(String inputString,
-                                                                                List<SystemPath_Alpha> inputList,
+                                                                                List<SystemPath> inputList,
                                                                                 boolean searchForFile, boolean useFileExtension)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6064,13 +6064,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<String> returnListContentAsStringList_IgnoreCase(String[] inputStrings,
-                                                                                List<SystemPath_Alpha> inputList,
+                                                                                List<SystemPath> inputList,
                                                                                 boolean searchForFile, boolean useFileExtension)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6086,12 +6086,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<String> returnListContentAsStringList_CompareFileExtensions(String inputString,
-                                                                                       List<SystemPath_Alpha> inputList)
+                                                                                       List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6106,12 +6106,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<String> returnListContentAsStringList_CompareFileExtensions(String[] inputStrings,
-                                                                                       List<SystemPath_Alpha> inputList)
+                                                                                       List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6126,12 +6126,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<String> returnListContentAsStringList_CompareFileExtensions(String inputString,
-                                                                                       List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                       List<SystemPath> inputList, boolean ignoreCase)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6146,12 +6146,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<String> returnListContentAsStringList_CompareFileExtensions(String[] inputStrings,
-                                                                                       List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                       List<SystemPath> inputList, boolean ignoreCase)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6166,12 +6166,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<String> returnListContentAsStringList_ExcludeFileExtension_IgnoreCase(String inputString,
-                                                                                                     List<SystemPath_Alpha> inputList)
+                                                                                                     List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6186,12 +6186,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<String> returnListContentAsStringList_ExcludeFileExtension_IgnoreCase(String[] inputStrings,
-                                                                                                     List<SystemPath_Alpha> inputList)
+                                                                                                     List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6207,12 +6207,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<String> returnListContentAsStringList_IgnoreCase_CompareFileExtensions(String inputString,
-                                                                                                  List<SystemPath_Alpha> inputList)
+                                                                                                  List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6227,12 +6227,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<String> returnListContentAsStringList_IgnoreCase_CompareFileExtensions(String[] inputStrings,
-                                                                                                  List<SystemPath_Alpha> inputList)
+                                                                                                  List<SystemPath> inputList)
                 {
                     List<String>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6248,7 +6248,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
             /*End: List<String>s.*/
     
             /*Start: List<File>s.*/
-                protected List<File> returnListContentAsFileList(List<SystemPath_Alpha> inputList)
+                protected List<File> returnListContentAsFileList(List<SystemPath> inputList)
                 {
                     List<File>
                     results;
@@ -6263,12 +6263,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
                 }
     
-                protected List<File> returnListContentAsFileList(String inputString, List<SystemPath_Alpha> inputList)
+                protected List<File> returnListContentAsFileList(String inputString, List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6282,12 +6282,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
                 
-                protected List<File> returnListContentAsFileList(String[] inputStrings, List<SystemPath_Alpha> inputList)
+                protected List<File> returnListContentAsFileList(String[] inputStrings, List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6301,13 +6301,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected List<File> returnListContentAsFileList(String inputString, List<SystemPath_Alpha> inputList,
+                protected List<File> returnListContentAsFileList(String inputString, List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6321,13 +6321,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
                 
-                protected List<File> returnListContentAsFileList(String[] inputStrings, List<SystemPath_Alpha> inputList,
+                protected List<File> returnListContentAsFileList(String[] inputStrings, List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6341,14 +6341,14 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected List<File> returnListContentAsFileList(String inputString, List<SystemPath_Alpha> inputList,
+                protected List<File> returnListContentAsFileList(String inputString, List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension,
                                                                  boolean ignoreCase)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6363,14 +6363,14 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<File> returnListContentAsFileList(String[] inputStrings,
-                                                                  List<SystemPath_Alpha> inputList,
+                                                                  List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension,
                                                                  boolean ignoreCase)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6384,7 +6384,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                 }
     
-                protected List<File> returnListContentAsFileList(String inputString, List<SystemPath_Alpha> inputList,
+                protected List<File> returnListContentAsFileList(String inputString, List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension,
                                                                  boolean ignoreCase,
                                                                  boolean compareFileExtensions)
@@ -6392,7 +6392,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6407,7 +6407,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<File> returnListContentAsFileList(String[] inputStrings,
-                                                                 List<SystemPath_Alpha> inputList,
+                                                                 List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension,
                                                                  boolean ignoreCase,
                                                                  boolean compareFileExtensions)
@@ -6415,7 +6415,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6430,12 +6430,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<File> returnListContentAsFileList_ExcludeFileExtension(String inputString,
-                                                                                      List<SystemPath_Alpha> inputList)
+                                                                                      List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6450,12 +6450,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<File> returnListContentAsFileList_ExcludeFileExtension(String inputString,
-                                                                                      List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                      List<SystemPath> inputList, boolean ignoreCase)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6470,12 +6470,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<File> returnListContentAsFileList_ExcludeFileExtension(String[] inputStrings,
-                                                                                      List<SystemPath_Alpha> inputList)
+                                                                                      List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6490,12 +6490,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<File> returnListContentAsFileList_ExcludeFileExtension(String[] inputStrings,
-                                                                                     List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                     List<SystemPath> inputList, boolean ignoreCase)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6510,12 +6510,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<File> returnListContentAsFileList_IgnoreCase(String inputString,
-                                                                            List<SystemPath_Alpha> inputList)
+                                                                            List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6530,12 +6530,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<File> returnListContentAsFileList_IgnoreCase(String[] inputStrings,
-                                                                            List<SystemPath_Alpha> inputList)
+                                                                            List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6550,13 +6550,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<File> returnListContentAsFileList_IgnoreCase(String inputString,
-                                                                            List<SystemPath_Alpha> inputList,
+                                                                            List<SystemPath> inputList,
                                                                            boolean searchForFile, boolean useFileExtension)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6571,13 +6571,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<File> returnListContentAsFileList_IgnoreCase(String[] inputStrings,
-                                                                            List<SystemPath_Alpha> inputList,
+                                                                            List<SystemPath> inputList,
                                                                            boolean searchForFile, boolean useFileExtension)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6592,12 +6592,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<File> returnListContentAsFileList_CompareFileExtensions(String inputString,
-                                                                                       List<SystemPath_Alpha> inputList)
+                                                                                       List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6612,12 +6612,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<File> returnListContentAsFileList_CompareFileExtensions(String[] inputStrings,
-                                                                                       List<SystemPath_Alpha> inputList)
+                                                                                       List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6632,12 +6632,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<File> returnListContentAsFileList_CompareFileExtensions(String inputString,
-                                                                                       List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                       List<SystemPath> inputList, boolean ignoreCase)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6652,12 +6652,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<File> returnListContentAsFileList_CompareFileExtensions(String[] inputStrings,
-                                                                                       List<SystemPath_Alpha> inputList, boolean ignoreCase)
+                                                                                       List<SystemPath> inputList, boolean ignoreCase)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6672,12 +6672,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<File> returnListContentAsFileList_ExcludeFileExtension_IgnoreCase(String inputString,
-                                                                            List<SystemPath_Alpha> inputList)
+                                                                            List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6692,12 +6692,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<File> returnListContentAsFileList_ExcludeFileExtension_IgnoreCase(String[] inputStrings,
-                                                                            List<SystemPath_Alpha> inputList)
+                                                                            List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6712,12 +6712,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<File> returnListContentAsFileList_IgnoreCase_CompareFileExtensions(String inputString,
-                                                                                       List<SystemPath_Alpha> inputList)
+                                                                                       List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6732,12 +6732,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 
                 protected List<File> returnListContentAsFileList_IgnoreCase_CompareFileExtensions(String[] inputStrings,
-                                                                                       List<SystemPath_Alpha> inputList)
+                                                                                       List<SystemPath> inputList)
                 {
                     List<File>
                     results;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     listResults;
                     
                     
@@ -6760,7 +6760,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
         /*Start: set global Lists.*/
             private void setListOnlyDirectories()
             {
-                allSystemPathsDirectory = new ArrayList<SystemPath_Alpha>();
+                allSystemPathsDirectory = new ArrayList<SystemPath>();
                 
                 
                 
@@ -6772,7 +6772,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
             
             private void setListOnlyFiles()
             {
-                allSystemPathsFile = new ArrayList<SystemPath_Alpha>();
+                allSystemPathsFile = new ArrayList<SystemPath>();
                 
                 
                 
@@ -6784,7 +6784,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
         /*End: set global Lists.*/
     
         /*Start: conversions of Lists.*/
-            private String[] convertListContentAsStringArray(List<SystemPath_Alpha> inputList)
+            private String[] convertListContentAsStringArray(List<SystemPath> inputList)
             {
                 String[]
                 results;
@@ -6804,7 +6804,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     String
                     currentPathString;
     
-                    SystemPath_Alpha
+                    SystemPath
                     currentPathSP;
                     
                     
@@ -6824,7 +6824,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
             }
     
-            private File[] convertListContentAsFileArray(List<SystemPath_Alpha> inputList)
+            private File[] convertListContentAsFileArray(List<SystemPath> inputList)
             {
                 File[]
                 results;
@@ -6844,7 +6844,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     File
                     currentPathFile;
     
-                    SystemPath_Alpha
+                    SystemPath
                     currentPathSP;
                     
                     
@@ -6864,7 +6864,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
             }
     
-            private List<String> convertListContentAsListString(List<SystemPath_Alpha> inputList)
+            private List<String> convertListContentAsListString(List<SystemPath> inputList)
             {
                 List<String>
                 results;
@@ -6884,7 +6884,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
             }
     
-            private List<File> convertListContentAsListFile(List<SystemPath_Alpha> inputList)
+            private List<File> convertListContentAsListFile(List<SystemPath> inputList)
             {
                 List<File>
                 results;
@@ -6906,18 +6906,18 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
         /*End: conversions of Lists.*/
     
         /*Start: searching List for matches.*/
-            private List<SystemPath_Alpha> searchListForMatch(String inputString, List<SystemPath_Alpha> inputList,
+            private List<SystemPath> searchListForMatch(String inputString, List<SystemPath> inputList,
                                                         boolean searchForFile, boolean useFileExtension,
                                                               boolean ignoreCase, boolean compareFileExtensions)
             {
-                List<SystemPath_Alpha>
+                List<SystemPath>
                 returnResults,
                 sortDistinct;
                 
                 
                 
-                returnResults = new ArrayList<SystemPath_Alpha>();
-                sortDistinct = new ArrayList<SystemPath_Alpha>();
+                returnResults = new ArrayList<SystemPath>();
+                sortDistinct = new ArrayList<SystemPath>();
                 
                 
                 
@@ -6929,7 +6929,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
                 if(searchForFile && !useFileExtension)
                 {
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     matchedListWithoutFileExtensions;
     
     
@@ -6943,7 +6943,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 if(ignoreCase)
                 {
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     matchedListIgnoreCase;
     
     
@@ -6958,7 +6958,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
                 if(compareFileExtensions)
                 {
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     matchedListFileExtensions;
                     
                     
@@ -6983,11 +6983,11 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
             }
             
-            private List<SystemPath_Alpha> searchListForMatch(String[] inputStrings, List<SystemPath_Alpha> inputList,
+            private List<SystemPath> searchListForMatch(String[] inputStrings, List<SystemPath> inputList,
                                                         boolean searchForFile, boolean useFileExtension,
                                                               boolean ignoreCase, boolean compareFileExtensions)
             {
-                List<SystemPath_Alpha>
+                List<SystemPath>
                 sortingMatches,
                 results;
                 
@@ -6996,8 +6996,8 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
     
     
     
-                sortingMatches = new ArrayList<SystemPath_Alpha>();
-                results = new ArrayList<SystemPath_Alpha>();
+                sortingMatches = new ArrayList<SystemPath>();
+                results = new ArrayList<SystemPath>();
                 inputStringsLength = inputStrings.length;
                 
                 
@@ -7010,7 +7010,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     int
                     currentMatchListSize;
                     
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     currentMatchList;
                     
                     
@@ -7024,7 +7024,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                     for(int i2 = 0; i2 < currentMatchListSize; i2++)
                     {
-                        SystemPath_Alpha
+                        SystemPath
                         currentSystemPath;
                         
                         
@@ -7048,15 +7048,15 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
             }
     
-            private List<SystemPath_Alpha> compareFilesWithoutExtension(String inputString, List<SystemPath_Alpha> inputList,
+            private List<SystemPath> compareFilesWithoutExtension(String inputString, List<SystemPath> inputList,
                                                                         boolean ignoreCase)
             {
-                List<SystemPath_Alpha>
+                List<SystemPath>
                 matchedFileNames;
                 
                 
                 
-                matchedFileNames = new ArrayList<SystemPath_Alpha>();
+                matchedFileNames = new ArrayList<SystemPath>();
                 
                 
                 
@@ -7085,10 +7085,10 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
             
             }
     
-            private List<SystemPath_Alpha> compareFilesIgnoreCase(String inputString, List<SystemPath_Alpha> inputList,
+            private List<SystemPath> compareFilesIgnoreCase(String inputString, List<SystemPath> inputList,
                                                                   boolean searchForFile, boolean useFileExtension)
             {
-                List<SystemPath_Alpha>
+                List<SystemPath>
                 matchedFileNames;
                 
                 String
@@ -7097,7 +7097,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
     
     
                 inputStringLowerCase = inputString.toLowerCase(Locale.ROOT);
-                matchedFileNames = new ArrayList<SystemPath_Alpha>();
+                matchedFileNames = new ArrayList<SystemPath>();
     
     
     
@@ -7109,7 +7109,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
                 if(searchForFile && !useFileExtension)
                 {
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     matchedListWithoutFileExtensions;
     
     
@@ -7127,15 +7127,15 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
             }
     
-            private List<SystemPath_Alpha> compareFileExtensions(String inputString,
-                                                                     List<SystemPath_Alpha> inputList, boolean ignoreCase)
+            private List<SystemPath> compareFileExtensions(String inputString,
+                                                                     List<SystemPath> inputList, boolean ignoreCase)
             {
-                List<SystemPath_Alpha>
+                List<SystemPath>
                 matchedFileExtensions;
                 
                 
                 
-                matchedFileExtensions = new ArrayList<SystemPath_Alpha>();
+                matchedFileExtensions = new ArrayList<SystemPath>();
                 
                 
                 
@@ -7148,7 +7148,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
                 if(ignoreCase)
                 {
-                    List<SystemPath_Alpha>
+                    List<SystemPath>
                     matchedListWithoutFileExtensions;
                     
                     
@@ -7165,10 +7165,10 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
             }
     
-            private List<SystemPath_Alpha> compareFileExtensionsIgnoreCase(String inputString,
-                                                                 List<SystemPath_Alpha> inputList)
+            private List<SystemPath> compareFileExtensionsIgnoreCase(String inputString,
+                                                                 List<SystemPath> inputList)
             {
-                List<SystemPath_Alpha>
+                List<SystemPath>
                 matchedFileExtensionsIgnoreCase;
                 
                 String
@@ -7177,7 +7177,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
                 
                 inputStringLowerCase = inputString.toLowerCase(Locale.ROOT);
-                matchedFileExtensionsIgnoreCase = new ArrayList<SystemPath_Alpha>();
+                matchedFileExtensionsIgnoreCase = new ArrayList<SystemPath>();
                 
                 
                 

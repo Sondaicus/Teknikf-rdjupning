@@ -8,7 +8,7 @@ import java.util.*;
 
 abstract interface ContainerAndOptions
 {
-    default List<SystemPath_Alpha> sendAndReceive()
+    default List<SystemPath> sendAndReceive()
     {
         OptionSettingsCalculation_Alpha
         opc;

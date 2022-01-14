@@ -9,7 +9,7 @@ import java.io.*;
 
 abstract interface OptionsAndSearch
 {
-    default File[] getChildren(SystemPath_Alpha currentPath)
+    default File[] getChildren(SystemPath currentPath)
     {
         CollectChildrenPaths
         ccpffi;

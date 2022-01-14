@@ -10,7 +10,7 @@ import java.util.*;
 
 class OptionSettingsCalculation_Alpha implements OptionsAndSearch
 {
-    protected static ArrayList <SystemPath_Alpha>
+    protected static ArrayList <SystemPath>
     allCollectedSystemPaths;
     
     protected static File[]
@@ -20,13 +20,13 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
     
     OptionSettingsCalculation_Alpha()
     {
-        allCollectedSystemPaths = new ArrayList<SystemPath_Alpha>();
+        allCollectedSystemPaths = new ArrayList<SystemPath>();
     
     }
     
     
     
-    protected List<SystemPath_Alpha> returnSystemPaths()
+    protected List<SystemPath> returnSystemPaths()
     {
         return allCollectedSystemPaths;
         
@@ -54,12 +54,12 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
     
     protected void startFolderSearchingTest(String startPath)
     {
-        SystemPath_Alpha
+        SystemPath
         thisSystemPath;
         
         
         
-        thisSystemPath = new SystemPath_Alpha(startPath);
+        thisSystemPath = new SystemPath(startPath);
         searchFolder(thisSystemPath);
         
     }
@@ -83,7 +83,7 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
     
     
     
-    protected void addToAllCollectedSystemPaths(SystemPath_Alpha systemPath)
+    protected void addToAllCollectedSystemPaths(SystemPath systemPath)
     {
         allCollectedSystemPaths.add(systemPath);
         
@@ -102,7 +102,7 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         
         for(int i = 0; i < rootFilesLength; i++)
         {
-            SystemPath_Alpha
+            SystemPath
             currentRootSystemPath;
         
             File
@@ -111,7 +111,7 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         
         
             currentRootFile = startDirectories[i];
-            currentRootSystemPath = new SystemPath_Alpha(currentRootFile);
+            currentRootSystemPath = new SystemPath(currentRootFile);
         
         
         
@@ -122,7 +122,7 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
     }
     
 
-    protected void searchFolder(SystemPath_Alpha currentPath)
+    protected void searchFolder(SystemPath currentPath)
     {
         boolean
         proceedWithSystemPath,
@@ -151,11 +151,12 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
                 {
                     for(File folderChild : currentDirectoryChildren)
                     {
-                        SystemPath_Alpha child;
+                        SystemPath
+                        child;
                 
                         
                 
-                        child = new SystemPath_Alpha(folderChild);
+                        child = new SystemPath(folderChild);
                 
                         if(child.getIsFile())
                         {
@@ -181,7 +182,7 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         
     }
     
-    protected boolean checkApprovedSystemPath(SystemPath_Alpha currentPath)
+    protected boolean checkApprovedSystemPath(SystemPath currentPath)
     {
         return true;
         
