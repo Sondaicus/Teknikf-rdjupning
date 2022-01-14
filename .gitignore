@@ -1,6 +1,7 @@
 **/.idea
 **/out
 **/logs
+*.txt
 *.iml
 *.txt
 *.gitattributes
