@@ -40,32 +40,14 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         filePathTest;
     
         
-    
-        filePathTest = "C:\\Users\\axel\\IdeaProjects";
+        
         setStartDirectories();
-      
+    
+    
         
-    
-        startFolderSearchingTest(filePathTest);
-    
-    }
-    
-    
-    
-    protected void startFolderSearchingTest(String startPath)
-    {
-        SystemPath
-        thisSystemPath;
-        
-        
-        
-        thisSystemPath = new SystemPath(startPath);
-        searchFolder(thisSystemPath);
+        startSystemSearching();
         
     }
-    
-    
-    
     
     protected void setStartDirectories()
     {
@@ -94,28 +76,28 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
     protected void startSystemSearching()
     {
         int
-        rootFilesLength;
+        startDirectoriesLength;
     
     
+    
+        startDirectoriesLength = startDirectories.length;
         
-        rootFilesLength = startDirectories.length;
-        
-        for(int i = 0; i < rootFilesLength; i++)
+        for(int i = 0; i < startDirectoriesLength; i++)
         {
             SystemPath
-            currentRootSystemPath;
+            startDirectorySystemPath;
         
             File
-            currentRootFile;
+            startDirectoryFile;
+    
+    
+    
+            startDirectoryFile = startDirectories[i];
+            startDirectorySystemPath = new SystemPath(startDirectoryFile);
         
         
         
-            currentRootFile = startDirectories[i];
-            currentRootSystemPath = new SystemPath(currentRootFile);
-        
-        
-        
-            searchFolder(currentRootSystemPath);
+            searchFolder(startDirectorySystemPath);
         
         }
         

@@ -11,12 +11,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
 {
     /*Start: global variables.*/
         protected static List <SystemPath>
-        allSystemPaths,
-        allSystemPathsDirectory,
-        allSystemPathsFile;
+            allSystemPaths,
+            allSystemPathsDirectory,
+            allSystemPathsFile;
         
         protected boolean
-        systemIsRead;
+            systemIsRead;
     /*End: global variables.*/
     
     
@@ -35,9 +35,8 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
         /*Start: setting global variables.*/
             public void readFromSystem()
             {
-                allSystemPaths = sendAndReceive();
+                collectMainList();
                 setSubLists();
-                
                 setSystemIsRead(true);
             
             }
@@ -181,13 +180,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String
-                        fileExtensionTarget;
+                        targetType;
                         
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTarget = checkFileExtension(target);
-                        results = returnListContentAsStringArray(fileExtensionTarget, allSystemPaths, true, useFileExtension,
+                        targetType = compareFileExtensions(compareFileExtensions, target);
+                        results = returnListContentAsStringArray(targetType, allSystemPaths, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -201,12 +200,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     {
                         String[]
                         results,
-                        fileExtensionTargets;
+                        targetsType;
+                        
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTargets = checkFileExtension(targets);
-                        results = returnListContentAsStringArray(fileExtensionTargets, allSystemPaths, true, useFileExtension,
+                        targetsType = compareFileExtensions(compareFileExtensions, targets);
+                        results = returnListContentAsStringArray(targetsType, allSystemPaths, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -684,13 +684,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String
-                        fileExtensionTarget;
+                        targetType;
                         
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTarget = checkFileExtension(target);
-                        results = returnListContentAsFileArray(fileExtensionTarget, allSystemPaths, true, useFileExtension,
+                        targetType = compareFileExtensions(compareFileExtensions, target);
+                        results = returnListContentAsFileArray(targetType, allSystemPaths, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -706,12 +706,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
 
                         String[]
-                        fileExtensionTargets;
+                        targetsType;
+                        
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTargets = checkFileExtension(targets);
-                        results = returnListContentAsFileArray(fileExtensionTargets, allSystemPaths, true, useFileExtension,
+                        targetsType = compareFileExtensions(compareFileExtensions, targets);
+                        results = returnListContentAsFileArray(targetsType, allSystemPaths, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -1192,13 +1193,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String
-                        fileExtensionTarget;
+                        targetType;
                         
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTarget = checkFileExtension(target);
-                        results = returnListContentAsStringList(fileExtensionTarget, allSystemPaths, true, useFileExtension,
+                        targetType = compareFileExtensions(compareFileExtensions, target);
+                        results = returnListContentAsStringList(targetType, allSystemPaths, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -1214,12 +1215,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String[]
-                        fileExtensionTargets;
+                        targetsType;
+                        
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTargets = checkFileExtension(targets);
-                        results = returnListContentAsStringList(fileExtensionTargets, allSystemPaths, true, useFileExtension,
+                        targetsType = compareFileExtensions(compareFileExtensions, targets);
+                        results = returnListContentAsStringList(targetsType, allSystemPaths, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -1706,12 +1708,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String
-                        fileExtensionTarget;
+                        targetType;
     
     
                         checkSystemIsRead();
-                        fileExtensionTarget = checkFileExtension(target);
-                        results = returnListContentAsFileList(fileExtensionTarget, allSystemPaths, true, useFileExtension,
+                        targetType = compareFileExtensions(compareFileExtensions, target);
+                        results = returnListContentAsFileList(targetType, allSystemPaths, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -1726,12 +1728,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String[]
-                        fileExtensionTargets;
+                        targetsType;
     
+                        
     
                         checkSystemIsRead();
-                        fileExtensionTargets = checkFileExtension(targets);
-                        results = returnListContentAsFileList(fileExtensionTargets, allSystemPaths, true, useFileExtension,
+                        targetsType = compareFileExtensions(compareFileExtensions, targets);
+                        results = returnListContentAsFileList(targetsType, allSystemPaths, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -2684,13 +2687,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String
-                        fileExtensionTarget;
+                        targetType;
                         
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTarget = checkFileExtension(target);
-                        results = returnListContentAsStringArray(fileExtensionTarget, allSystemPathsFile, true, useFileExtension,
+                        targetType = compareFileExtensions(compareFileExtensions, target);
+                        results = returnListContentAsStringArray(targetType, allSystemPathsFile, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -2704,13 +2707,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     {
                         String[]
                         results,
-                        fileExtensionTargets;
+                        targetsType;
                         
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTargets = checkFileExtension(targets);
-                        results = returnListContentAsStringArray(fileExtensionTargets, allSystemPathsFile, true, useFileExtension,
+                        targetsType = compareFileExtensions(compareFileExtensions, targets);
+                        results = returnListContentAsStringArray(targetsType, allSystemPathsFile, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -3188,12 +3191,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String
-                        fileExtensionTarget;
+                        targetType;
+                        
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTarget = checkFileExtension(target);
-                        results = returnListContentAsFileArray(fileExtensionTarget, allSystemPathsFile, true, useFileExtension,
+                        targetType = compareFileExtensions(compareFileExtensions, target);
+                        results = returnListContentAsFileArray(targetType, allSystemPathsFile, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -3209,12 +3213,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String[]
-                        fileExtensionTargets;
+                        targetsType;
+                        
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTargets = checkFileExtension(targets);
-                        results = returnListContentAsFileArray(fileExtensionTargets, allSystemPathsFile, true,
+                        targetsType = compareFileExtensions(compareFileExtensions, targets);
+                        results = returnListContentAsFileArray(targetsType, allSystemPathsFile, true,
                         useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
@@ -3700,12 +3705,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String
-                        fileExtensionTarget;
+                        targetType;
+                        
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTarget = checkFileExtension(target);
-                        results = returnListContentAsStringList(fileExtensionTarget, allSystemPathsFile, true, useFileExtension,
+                        targetType = compareFileExtensions(compareFileExtensions, target);
+                        results = returnListContentAsStringList(targetType, allSystemPathsFile, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -3721,12 +3727,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String[]
-                        fileExtensionTargets;
+                        targetsType;
+                        
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTargets = checkFileExtension(targets);
-                        results = returnListContentAsStringList(fileExtensionTargets, allSystemPathsFile, true, useFileExtension,
+                        targetsType = compareFileExtensions(compareFileExtensions, targets);
+                        results = returnListContentAsStringList(targetsType, allSystemPathsFile, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -3895,6 +3902,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         fileExtensionTargets;
                         
                         
+                        
                         checkSystemIsRead();
                         fileExtensionTargets = checkFileExtension(targets);
                         results = returnListContentAsStringList_CompareFileExtensions(fileExtensionTargets,
@@ -3934,6 +3942,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         
                         String[]
                         fileExtensionTargets;
+                        
                         
                         
                         checkSystemIsRead();
@@ -4212,12 +4221,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String
-                        fileExtensionTarget;
+                        targetType;
+                        
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTarget = checkFileExtension(target);
-                        results = returnListContentAsFileList(fileExtensionTarget, allSystemPathsFile, true, useFileExtension,
+                        targetType = compareFileExtensions(compareFileExtensions, target);
+                        results = returnListContentAsFileList(targetType, allSystemPathsFile, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -4232,12 +4242,13 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                         results;
                         
                         String[]
-                        fileExtensionTargets;
+                        targetsType;
+                        
                         
                         
                         checkSystemIsRead();
-                        fileExtensionTargets = checkFileExtension(targets);
-                        results = returnListContentAsFileList(fileExtensionTargets, allSystemPathsFile, true, useFileExtension,
+                        targetsType = compareFileExtensions(compareFileExtensions, targets);
+                        results = returnListContentAsFileList(targetsType, allSystemPathsFile, true, useFileExtension,
                         ignoreCase, compareFileExtensions);
                         
                         
@@ -4611,6 +4622,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
     
     /*Start: protected methods.*/
         /*Start: initialize global variables.*/
+            protected void collectMainList()
+            {
+                allSystemPaths = sendAndReceive_Alpha();
+                
+            }
+            
             protected void setSubLists()
             {
                 setSubLists_Alpha();
@@ -4772,6 +4789,48 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                     
                     listResults = searchListForMatch(inputStrings, inputList, true, true, false, false);
+                    results = convertListContentAsStringArray(listResults);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+    
+                protected String[] returnListContentAsStringArray(String inputString, List<SystemPath> inputList,
+                                                                  boolean ignoreCase)
+                {
+                    String[]
+                    results;
+                    
+                    List<SystemPath>
+                    listResults;
+                    
+                    
+                    
+                    listResults = searchListForMatch(inputString, inputList, true, true, ignoreCase,
+                    false);
+                    results = convertListContentAsStringArray(listResults);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+    
+                protected String[] returnListContentAsStringArray(String[] inputStrings, List<SystemPath> inputList,
+                                                                  boolean ignoreCase)
+                {
+                    String[]
+                    results;
+                    
+                    List<SystemPath>
+                    listResults;
+                    
+                    
+                    
+                    listResults = searchListForMatch(inputStrings, inputList, true, true, ignoreCase,
+                    false);
                     results = convertListContentAsStringArray(listResults);
                     
                     
@@ -5285,6 +5344,48 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected File[] returnListContentAsFileArray(String inputString, List<SystemPath> inputList,
+                                                                  boolean ignoreCase)
+                {
+                    File[]
+                    results;
+                    
+                    List<SystemPath>
+                    listResults;
+                    
+                    
+                    
+                    listResults = searchListForMatch(inputString, inputList, true, true, ignoreCase,
+                    false);
+                    results = convertListContentAsFileArray(listResults);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+    
+                protected File[] returnListContentAsFileArray(String[] inputStrings, List<SystemPath> inputList,
+                                                              boolean ignoreCase)
+                {
+                    File[]
+                    results;
+                    
+                    List<SystemPath>
+                    listResults;
+                    
+                    
+                    
+                    listResults = searchListForMatch(inputStrings, inputList, true, true, ignoreCase,
+                    false);
+                    results = convertListContentAsFileArray(listResults);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+    
+                protected File[] returnListContentAsFileArray(String inputString, List<SystemPath> inputList,
                                                               boolean searchForFile, boolean useFileExtension)
                 {
                     File[]
@@ -5786,6 +5887,48 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                     
                     return results;
                     
+                    
+                }
+    
+                protected List<String> returnListContentAsStringList(String inputString, List<SystemPath> inputList,
+                                                              boolean ignoreCase)
+                {
+                    List<String>
+                    results;
+                    
+                    List<SystemPath>
+                    listResults;
+                    
+                    
+                    
+                    listResults = searchListForMatch(inputString, inputList, true, true, ignoreCase,
+                    false);
+                    results = convertListContentAsListString(listResults);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+    
+                protected List<String> returnListContentAsStringList(String[] inputStrings, List<SystemPath> inputList,
+                                                                     boolean ignoreCase)
+                {
+                    List<String>
+                    results;
+                    
+                    List<SystemPath>
+                    listResults;
+                    
+                    
+                    
+                    listResults = searchListForMatch(inputStrings, inputList, true, true, ignoreCase,
+                    false);
+                    results = convertListContentAsListString(listResults);
+                    
+                    
+                    
+                    return results;
                     
                 }
     
@@ -6302,6 +6445,48 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
     
                 protected List<File> returnListContentAsFileList(String inputString, List<SystemPath> inputList,
+                                                                     boolean ignoreCase)
+                {
+                    List<File>
+                    results;
+                    
+                    List<SystemPath>
+                    listResults;
+                    
+                    
+                    
+                    listResults = searchListForMatch(inputString, inputList, true, true, ignoreCase,
+                    false);
+                    results = convertListContentAsListFile(listResults);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+    
+                protected List<File> returnListContentAsFileList(String[] inputStrings, List<SystemPath> inputList,
+                                                                 boolean ignoreCase)
+                {
+                    List<File>
+                    results;
+                    
+                    List<SystemPath>
+                    listResults;
+                    
+                    
+                    
+                    listResults = searchListForMatch(inputStrings, inputList, true, true, ignoreCase,
+                    false);
+                    results = convertListContentAsListFile(listResults);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+    
+                protected List<File> returnListContentAsFileList(String inputString, List<SystemPath> inputList,
                                                                  boolean searchForFile, boolean useFileExtension)
                 {
                     List<File>
@@ -6752,6 +6937,54 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 }
             /*End: List<File>s.*/
         /*End: return List contents.*/
+    
+        /*Start: get variable-search-options.*/
+            protected String compareFileExtensions(boolean compareFileExtensions, String target) throws FileExtensionNotApprovedException
+            {
+                String
+                result;
+                
+                
+                
+                if(compareFileExtensions)
+                {
+                    result = checkFileExtension(target);
+        
+                }
+                else
+                {
+                    result = target;
+        
+                }
+                
+                
+                return result;
+                
+            }
+    
+            protected String[] compareFileExtensions(boolean compareFileExtensions, String[] targets) throws FileExtensionNotApprovedException
+            {
+                String[]
+                result;
+                
+                
+                
+                if(compareFileExtensions)
+                {
+                    result = checkFileExtension(targets);
+                    
+                }
+                else
+                {
+                    result = targets;
+                    
+                }
+                
+                
+                return result;
+                
+            }
+        /*End: get variable-search-options.*/
     /*End: protected methods.*/
     
     
