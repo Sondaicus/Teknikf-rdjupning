@@ -29,6 +29,9 @@ public class SystemPath_Alpha
     
     
     
+    protected SystemPath_Alpha()
+    {}
+    
     SystemPath_Alpha(File file)
     {
         setVariables(file);
@@ -55,7 +58,7 @@ public class SystemPath_Alpha
     
     
     
-    private void setVariables_Alpha(File file)
+    protected void setVariables_Alpha(File file)
     {
         setAbsoluteFile(file);
         setAbsoluteString();
@@ -72,7 +75,7 @@ public class SystemPath_Alpha
         
     }
     
-    private void setVariables_Alpha(String filePath)
+    protected void setVariables_Alpha(String filePath)
     {
         File
         file;
@@ -86,6 +89,8 @@ public class SystemPath_Alpha
         setVariables_Alpha(file);
         
     }
+    
+    
     
     private void setAbsoluteFile(File file)
     {
@@ -117,7 +122,7 @@ public class SystemPath_Alpha
     private void setIsDirectory()
     {
         this.isDirectory = absoluteFile.isDirectory();
-        
+    
     }
     
     private void setIsFile()

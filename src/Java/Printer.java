@@ -31,6 +31,32 @@ public class Printer
     
     
     
+    public void printToConsoleForEach(String[] content)
+    {
+        int
+        contentLength;
+    
+    
+    
+        contentLength = content.length;
+        
+        for(int i = 0; i < contentLength; i++)
+        {
+            String
+            currentString;
+            
+            
+            
+            currentString = content[i];
+            
+            
+            
+            System.out.println(currentString);
+            
+        }
+        
+    }
+    
     public void print(String content, boolean append) throws IOException
     {
         PrintWriter
@@ -73,7 +99,8 @@ public class Printer
         
         
         
-        folderPath = "C:\\Users\\axel\\IdeaProjects\\Nackademin\\Kursuppgifter\\Teknikfördjupning\\Projektmapp\\Teknikf-rdjupning\\logs\\";
+        folderPath = "D:\\Users\\Hårddisken\\IdeaProjects\\Nackademin\\Kursuppgifter\\Teknikfördjupning\\Inlämningsuppgifter" +
+                     "\\Teknikf-rdjupning\\logs\\";
         
         
         

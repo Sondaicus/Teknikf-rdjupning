@@ -3,7 +3,9 @@ package Java;
 
 
 import systemPathsCollector.*;
-import java.io.IOException;
+import java.io.*;
+import java.nio.*;
+import java.nio.file.*;
 
 
 
@@ -17,34 +19,53 @@ public class Main
         Printer
         prn;
     
-        SystemFilesContainer_Alpha
-        sfcA;
+        SystemFilesContainer_Beta
+        sfcB;
     
         String
-        input;
+        input,
+        ideaProjectsFolder;
     
         String[]
         inputs,
         results;
+        
+        File[]
+        roots;
+        
+        int
+        rootsLength;
     
+        LinkOption
+        lo;
     
-    
+        
+        
+        ideaProjectsFolder = "D:\\Users\\Hårddisken\\IdeaProjects";
         lft = new LogForTesting();
         prn = new Printer();
-        
-        
-        
-        sfcA = new SystemFilesContainer_Alpha();
-        sfcA.readFromSystem();
-        results = sfcA.stringArrayAllPaths_CompareFileExtensions("txt");
+        sfcB = new SystemFilesContainer_Beta();
     
     
     
-        lft.printListLog(results, "results", "log");
+        sfcB.addStartDirectory(ideaProjectsFolder);
         
-        
+     
+        sfcB.addExcludedFileTypesIgnoreCase("xml");
+        sfcB.addExcludedFileTypesIgnoreCase(".FXML");
+        sfcB.addExcludedFileTypes(".JAVA");
+        sfcB.addExcludedDirectory("Nackademin");
+        results = sfcB.getExcludedFileTypesIgnoreCaseArray();
+        prn.printToConsoleForEach(results);
+        results = sfcB.getExcludedFileTypesArray();
+        prn.printToConsoleForEach(results);
+     
+        sfcB.readFromSystem();
+        results = sfcB.stringArrayAllPaths();
     
+    
+        lft.printListLog(results, "results.txt", "test");
+        
     }
     
- 
 }
