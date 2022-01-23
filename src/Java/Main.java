@@ -19,11 +19,12 @@ public class Main
         Printer
         prn;
     
-        SystemFilesContainer_Alpha
-        sfcA;
+        SystemFilesContainer_Beta
+        sfcB;
     
         String
-        input;
+        input,
+        ideaProjectsFolder;
     
         String[]
         inputs,
@@ -37,83 +38,34 @@ public class Main
     
         LinkOption
         lo;
-        
     
         
-    
+        
+        ideaProjectsFolder = "D:\\Users\\Hårddisken\\IdeaProjects";
         lft = new LogForTesting();
         prn = new Printer();
+        sfcB = new SystemFilesContainer_Beta();
+    
+    
+    
+        sfcB.addStartDirectory(ideaProjectsFolder);
         
+     
+        sfcB.addExcludedFileTypesIgnoreCase("xml");
+        sfcB.addExcludedFileTypesIgnoreCase(".FXML");
+        sfcB.addExcludedFileTypes(".JAVA");
+        sfcB.addExcludedDirectory("Nackademin");
+        results = sfcB.getExcludedFileTypesIgnoreCaseArray();
+        prn.printToConsoleForEach(results);
+        results = sfcB.getExcludedFileTypesArray();
+        prn.printToConsoleForEach(results);
+     
+        sfcB.readFromSystem();
+        results = sfcB.stringArrayAllPaths();
+    
+    
+        lft.printListLog(results, "results.txt", "test");
         
-        /*
-        sfcA = new SystemFilesContainer_Alpha();
-        sfcA.readFromSystem();
-        results = sfcA.stringArrayAllPaths_CompareFileExtensions("txt");
-    
-    
-    
-        lft.printListLog(results, "results", "log");
-        */
-        
-        
-        
-        roots = File.listRoots();
-        rootsLength = roots.length;
-    
-        System.out.println(rootsLength);
-        
-        
-        for(int i = 0; i < rootsLength; i++)
-        {
-            File
-            currentFile;
-            
-            boolean
-            isRegularFile;
-            
-            String
-            absolutePath;
-            
-            Path
-            currentPath,
-            dir,
-            symPath,
-            tempFile;
-    
-    
-    
-            absolutePath = "C:\\Windows\\mib.bin";
-            
-    /*
-            currentFile = roots[i];
-            absolutePath = currentFile.getAbsolutePath();
-            currentPath = currentFile.toPath();
-    */
-    
-            currentFile = new File(absolutePath);
-            currentPath = currentFile.toPath();
-            
-    
-        
-            
-    
-            
-            dir = Files.createTempDirectory("test-dir");
-            tempFile = Files.createTempFile(dir, "test-file", ".txt");
-            symPath = Files.createSymbolicLink(dir.resolve("sym-" + currentPath.getFileName()), currentPath);
-            isRegularFile = Files.isRegularFile(symPath);
-    
-    
-            System.out.println(absolutePath);
-            System.out.println(currentFile.exists());
-            System.out.println(isRegularFile);
-           
-           
-        
-          
-        }
-    
     }
     
- 
 }

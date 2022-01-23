@@ -3,7 +3,6 @@ package systemPathsCollector;
 
 
 import java.io.File;
-import java.util.Locale;
 
 
 

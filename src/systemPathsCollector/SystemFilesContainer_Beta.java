@@ -1,23 +1,1138 @@
 package systemPathsCollector;
 
 
+
 import java.io.File;
 import java.util.*;
+
 
 
 public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
 {
     /*Start: global variables.*/
-        protected static List<SystemPath>
+        protected List<SystemPath>
         allSystemPathsHidden,
         allSystemPathsVisible,
         allSystemPathsDirectoryHidden,
         allSystemPathsDirectoryVisible,
         allSystemPathsFileHidden,
         allSystemPathsFileVisible;
+        
+        protected List<String>
+        startDirectories,
+        excludedDirectories,
+        excludedFileNames,
+        excludedFileTypes,
+        excludedDirectoriesIgnoreCase,
+        excludedFileNamesIgnoreCase,
+        excludedFileTypesIgnoreCase;
+        
+        protected List<Boolean>
+        pathVisibility;
+        
+        protected boolean
+        useHiddenPaths,
+        useVisiblePaths;
     /*End: global variables.*/
+    
+    
+    
+    /*Start: constructors.*/
+        public SystemFilesContainer_Beta()
+        {
+            setSystemSearchOptionsVariablesStartValues_Beta();
+            setSystemIsRead(false);
+            
+        }
+    /*End: constructors.*/
+    
+    
 
     /*Start: public methods.*/
+        /*Start: system search options variables.*/
+            /*Start: set system search options variables.*/
+                /*Start: booleans.*/
+                    public void setUseHiddenPaths(boolean useHiddenPaths)
+                    {
+                        this.useHiddenPaths = useHiddenPaths;
+                        
+                    }
+            
+                    public void setUseVisiblePaths(boolean useVisiblePaths)
+                    {
+                        this.useVisiblePaths = useVisiblePaths;
+                        
+                    }
+                /*End: booleans.*/
+    
+                /*Start: List<String>s.*/
+                    /*Start: startDirectories.*/
+                        public void addStartDirectory(String target)
+                        {
+                            boolean
+                            addToList;
+            
+            
+            
+                            addToList = startDirectories.stream()
+                            .anyMatch(s -> s.equals(target));
+                            
+                            
+                            
+                            if(!addToList)
+                            {
+                                startDirectories.add(target);
+                                
+                            }
+                            
+                        }
+                        
+                        public void addStartDirectory(String[] targets)
+                        {
+                            int
+                            targetsLength;
+            
+            
+            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+            
+            
+            
+                                currentTarget = targets[i];
+            
+            
+            
+                                addStartDirectory(currentTarget);
+                                
+                            }
+                            
+                        }
+            
+                        public void removeStartDirectory(String target)
+                        {
+                            startDirectories.remove(target);
+                            
+                        }
+                        
+                        public void removeStartDirectory(String[] targets)
+                        {
+                            int
+                            targetsLength;
+            
+            
+            
+                            targetsLength = targets.length;
+            
+            
+            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                
+                
+                
+                                currentTarget = targets[i];
+            
+            
+            
+                                removeStartDirectory(currentTarget);
+                
+                            }
+                            
+                        }
+            
+                        public void removeStartDirectory(int index)
+                        {
+                            startDirectories.remove(index);
+                            
+                        }
+                        
+                        public void removeStartDirectory(int[] indexes)
+                        {
+                            int
+                            indexesLength;
+            
+            
+            
+                            indexesLength = indexes.length;
+                            
+                            
+                            
+                            for(int i = 0; i < indexesLength; i++)
+                            {
+                                int
+                                currentIndex;
+            
+            
+            
+                                currentIndex = indexes[i];
+                                
+                                
+                                
+                                removeStartDirectory(currentIndex);
+                                
+                            }
+                            
+                        }
+            
+                        public void clearStartDirectory()
+                        {
+                            startDirectories.clear();
+                            
+                        }
+                    /*End: startDirectories.*/
+    
+                    /*Start: excludedDirectories.*/
+                        public void addExcludedDirectory(String target)
+                        {
+                            boolean
+                            addToList;
+                            
+                            
+                            
+                            addToList = excludedDirectories.stream()
+                            .anyMatch(s -> s.equals(target));
+                            
+                            
+                            
+                            if(!addToList)
+                            {
+                                excludedDirectories.add(target);
+                                
+                            }
+                            
+                        }
+                        
+                        public void addExcludedDirectory(String[] targets)
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                addExcludedDirectory(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedDirectory(String target)
+                        {
+                            excludedDirectories.remove(target);
+                            
+                        }
+                        
+                        public void removeExcludedDirectory(String[] targets)
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                removeExcludedDirectory(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedDirectory(int index)
+                        {
+                            excludedDirectories.remove(index);
+                            
+                        }
+                        
+                        public void removeExcludedDirectory(int[] indexes)
+                        {
+                            int
+                            indexesLength;
+                            
+                            
+                            
+                            indexesLength = indexes.length;
+                            
+                            
+                            
+                            for(int i = 0; i < indexesLength; i++)
+                            {
+                                int
+                                currentIndex;
+                                
+                                
+                                
+                                currentIndex = indexes[i];
+                                
+                                
+                                
+                                removeExcludedDirectory(currentIndex);
+                                
+                            }
+                            
+                        }
+                        
+                        public void clearExcludedDirectory()
+                        {
+                            excludedDirectories.clear();
+                            
+                        }
+                    /*End: excludedDirectories.*/
+    
+                    /*Start: excludedFileNames.*/
+                        public void addExcludedFileNames(String target)
+                        {
+                            boolean
+                            addToList;
+                            
+                            
+                            
+                            addToList = excludedFileNames.stream()
+                            .anyMatch(s -> s.equals(target));
+                            
+                            
+                            
+                            if(!addToList)
+                            {
+                                excludedFileNames.add(target);
+                                
+                            }
+                            
+                        }
+                        
+                        public void addExcludedFileNames(String[] targets)
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                addExcludedFileNames(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedFileNames(String target)
+                        {
+                            excludedFileNames.remove(target);
+                            
+                        }
+                        
+                        public void removeExcludedFileNames(String[] targets)
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                removeExcludedFileNames(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedFileNames(int index)
+                        {
+                            excludedFileNames.remove(index);
+                            
+                        }
+                        
+                        public void removeExcludedFileNames(int[] indexes)
+                        {
+                            int
+                            indexesLength;
+                            
+                            
+                            
+                            indexesLength = indexes.length;
+                            
+                            
+                            
+                            for(int i = 0; i < indexesLength; i++)
+                            {
+                                int
+                                currentIndex;
+                                
+                                
+                                
+                                currentIndex = indexes[i];
+                                
+                                
+                                
+                                removeExcludedFileNames(currentIndex);
+                                
+                            }
+                            
+                        }
+                        
+                        public void clearExcludedFileNames()
+                        {
+                            excludedFileNames.clear();
+                            
+                        }
+                    /*End: excludedFileNames.*/
+                    
+                    /*Start: excludedFileTypes.*/
+                        public void addExcludedFileTypes(String target) throws FileExtensionNotApprovedException
+                        {
+                            boolean
+                            addToList;
+                            
+                            String
+                            fileExtensionTarget;
+    
+    
+                            fileExtensionTarget = checkFileExtension(target);
+                            addToList = excludedFileTypes.stream()
+                            .anyMatch(s -> s.equals(fileExtensionTarget));
+                            
+                            
+                            
+                            if(!addToList)
+                            {
+                                excludedFileTypes.add(fileExtensionTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void addExcludedFileTypes(String[] targets) throws FileExtensionNotApprovedException
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                addExcludedFileTypes(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedFileTypes(String target)
+                        {
+                            excludedFileTypes.remove(target);
+                            
+                        }
+                        
+                        public void removeExcludedFileTypes(String[] targets)
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                removeExcludedFileTypes(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedFileTypes(int index)
+                        {
+                            excludedFileTypes.remove(index);
+                            
+                        }
+                        
+                        public void removeExcludedFileTypes(int[] indexes)
+                        {
+                            int
+                            indexesLength;
+                            
+                            
+                            
+                            indexesLength = indexes.length;
+                            
+                            
+                            
+                            for(int i = 0; i < indexesLength; i++)
+                            {
+                                int
+                                currentIndex;
+                                
+                                
+                                
+                                currentIndex = indexes[i];
+    
+    
+    
+                                removeExcludedFileTypes(currentIndex);
+                                
+                            }
+                            
+                        }
+                        
+                        public void clearExcludedFileTypes()
+                        {
+                            excludedFileTypes.clear();
+                            
+                        }
+                    /*End: excludedFileTypes.*/
+    
+                    /*Start: excludedDirectoriesIgnoreCase.*/
+                        public void addExcludedDirectoryIgnoreCase(String target)
+                        {
+                            String
+                            targetLowerCase;
+                            
+                            boolean
+                            addToList;
+    
+    
+    
+                            targetLowerCase = target.toLowerCase(Locale.ROOT);
+                            addToList = excludedDirectoriesIgnoreCase.stream()
+                            .anyMatch(s -> s.equals(targetLowerCase));
+                            
+                            
+                            
+                            if(!addToList)
+                            {
+                                excludedDirectoriesIgnoreCase.add(targetLowerCase);
+                                
+                            }
+                            
+                        }
+                        
+                        public void addExcludedDirectoryIgnoreCase(String[] targets)
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                addExcludedDirectoryIgnoreCase(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedDirectoryIgnoreCase(String target)
+                        {
+                            String
+                            targetLowerCase;
+    
+    
+    
+                            targetLowerCase = target.toLowerCase(Locale.ROOT);
+                            excludedDirectoriesIgnoreCase.remove(targetLowerCase);
+                            
+                        }
+                        
+                        public void removeExcludedDirectoryIgnoreCase(String[] targets)
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                removeExcludedDirectoryIgnoreCase(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedDirectoryIgnoreCase(int index)
+                        {
+                            excludedDirectoriesIgnoreCase.remove(index);
+                            
+                        }
+                        
+                        public void removeExcludedDirectoryIgnoreCase(int[] indexes)
+                        {
+                            int
+                            indexesLength;
+                            
+                            
+                            
+                            indexesLength = indexes.length;
+                            
+                            
+                            
+                            for(int i = 0; i < indexesLength; i++)
+                            {
+                                int
+                                currentIndex;
+                                
+                                
+                                
+                                currentIndex = indexes[i];
+                                
+                                
+                                
+                                removeExcludedDirectoryIgnoreCase(currentIndex);
+                                
+                            }
+                            
+                        }
+                        
+                        public void clearExcludedDirectoryIgnoreCase()
+                        {
+                            excludedDirectoriesIgnoreCase.clear();
+                            
+                        }
+                    /*End: excludedDirectoriesIgnoreCase.*/
+                    
+                    /*Start: excludedFileNamesIgnoreCase.*/
+                        public void addExcludedFileNamesIgnoreCase(String target)
+                        {
+                            String
+                            targetLowerCase;
+                            
+                            boolean
+                            addToList;
+    
+    
+    
+                            targetLowerCase = target.toLowerCase(Locale.ROOT);
+                            addToList = excludedFileNamesIgnoreCase.stream()
+                            .anyMatch(s -> s.equals(targetLowerCase));
+                            
+                            
+                            
+                            if(!addToList)
+                            {
+                                excludedFileNamesIgnoreCase.add(targetLowerCase);
+                                
+                            }
+                            
+                        }
+                        
+                        public void addExcludedFileNamesIgnoreCase(String[] targets)
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                addExcludedFileNamesIgnoreCase(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedFileNamesIgnoreCase(String target)
+                        {
+                            String
+                            targetLowerCase;
+    
+    
+    
+                            targetLowerCase = target.toLowerCase(Locale.ROOT);
+                            excludedFileNamesIgnoreCase.remove(targetLowerCase);
+                            
+                        }
+                        
+                        public void removeExcludedFileNamesIgnoreCase(String[] targets)
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                removeExcludedFileNamesIgnoreCase(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedFileNamesIgnoreCase(int index)
+                        {
+                            excludedFileNamesIgnoreCase.remove(index);
+                            
+                        }
+                        
+                        public void removeExcludedFileNamesIgnoreCase(int[] indexes)
+                        {
+                            int
+                            indexesLength;
+                            
+                            
+                            
+                            indexesLength = indexes.length;
+                            
+                            
+                            
+                            for(int i = 0; i < indexesLength; i++)
+                            {
+                                int
+                                currentIndex;
+                                
+                                
+                                
+                                currentIndex = indexes[i];
+                                
+                                
+                                
+                                removeExcludedFileNamesIgnoreCase(currentIndex);
+                                
+                            }
+                            
+                        }
+                        
+                        public void clearExcludedFileNamesIgnoreCase()
+                        {
+                            excludedFileNamesIgnoreCase.clear();
+                            
+                        }
+                    /*End: excludedFileNamesIgnoreCase.*/
+                    
+                    /*Start: excludedFileTypesIgnoreCase.*/
+                        public void addExcludedFileTypesIgnoreCase(String target) throws FileExtensionNotApprovedException
+                        {
+                            String
+                            targetLowerCase,
+                            fileExtensionTarget;
+                            
+                            boolean
+                            addToList;
+    
+    
+    
+                            fileExtensionTarget = checkFileExtension(target);
+                            targetLowerCase = fileExtensionTarget.toLowerCase(Locale.ROOT);
+                            addToList = excludedFileTypesIgnoreCase.stream()
+                            .anyMatch(s -> s.equals(targetLowerCase));
+                            
+                            
+                            
+                            if(!addToList)
+                            {
+                                excludedFileTypesIgnoreCase.add(targetLowerCase);
+                                
+                            }
+                            
+                        }
+                        
+                        public void addExcludedFileTypesIgnoreCase(String[] targets) throws FileExtensionNotApprovedException
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                addExcludedFileTypesIgnoreCase(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedFileTypesIgnoreCase(String target)
+                        {
+                            String
+                            targetLowerCase;
+    
+    
+    
+                            targetLowerCase = target.toLowerCase(Locale.ROOT);
+                            excludedFileTypesIgnoreCase.remove(targetLowerCase);
+                            
+                        }
+                        
+                        public void removeExcludedFileTypesIgnoreCase(String[] targets)
+                        {
+                            int
+                            targetsLength;
+                            
+                            
+                            
+                            targetsLength = targets.length;
+                            
+                            
+                            
+                            for(int i = 0; i < targetsLength; i++)
+                            {
+                                String
+                                currentTarget;
+                                
+                                
+                                
+                                currentTarget = targets[i];
+                                
+                                
+                                
+                                removeExcludedFileTypesIgnoreCase(currentTarget);
+                                
+                            }
+                            
+                        }
+                        
+                        public void removeExcludedFileTypesIgnoreCase(int index)
+                        {
+                            excludedFileTypesIgnoreCase.remove(index);
+                            
+                        }
+                        
+                        public void removeExcludedFileTypesIgnoreCase(int[] indexes)
+                        {
+                            int
+                            indexesLength;
+                            
+                            
+                            
+                            indexesLength = indexes.length;
+                            
+                            
+                            
+                            for(int i = 0; i < indexesLength; i++)
+                            {
+                                int
+                                currentIndex;
+                                
+                                
+                                
+                                currentIndex = indexes[i];
+    
+    
+    
+                                removeExcludedFileTypesIgnoreCase(currentIndex);
+                                
+                            }
+                            
+                        }
+                        
+                        public void clearExcludedFileTypesIgnoreCase()
+                        {
+                            excludedFileTypesIgnoreCase.clear();
+                            
+                        }
+                    /*End: excludedFileTypesIgnoreCase.*/
+                /*End: List<String>s.*/
+            /*End: set system search options variables.*/
+    
+            /*Start: get system search options variables.*/
+                public boolean getUseHiddenPaths()
+                {
+                    return useHiddenPaths;
+                    
+                }
+                
+                public boolean getUseVisiblePaths()
+                {
+                    return useVisiblePaths;
+                    
+                }
+    
+                public List<String> getStartDirectoryList()
+                {
+                    return startDirectories;
+                    
+                }
+                
+                public String[] getStartDirectoryArray()
+                {
+                    String[]
+                    results;
+                    
+                    
+                    
+                    results = arrayAndListConversions.listStringToStringArray(startDirectories);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+                
+                public List<String> getExcludedDirectoriesList()
+                {
+                    return excludedDirectories;
+                    
+                }
+                
+                public String[] getExcludedDirectoriesArray()
+                {
+                    String[]
+                    results;
+                    
+                    
+                    
+                    results = arrayAndListConversions.listStringToStringArray(excludedDirectories);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+    
+                public List<String> getExcludedFileNamesList()
+                {
+                    return excludedFileNames;
+                    
+                }
+                
+                public String[] getExcludedFileNamesArray()
+                {
+                    String[]
+                    results;
+                    
+                    
+                    
+                    results = arrayAndListConversions.listStringToStringArray(excludedFileNames);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+                
+                public List<String> getExcludedFileTypesList()
+                {
+                    return excludedFileTypes;
+                    
+                }
+                
+                public String[] getExcludedFileTypesArray()
+                {
+                    String[]
+                    results;
+                    
+                    
+                    
+                    results = arrayAndListConversions.listStringToStringArray(excludedFileTypes);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+                
+                public List<String> getExcludedDirectoriesIgnoreCaseList()
+                {
+                    return excludedDirectoriesIgnoreCase;
+                    
+                }
+                
+                public String[] getExcludedDirectoriesIgnoreCaseArray()
+                {
+                    String[]
+                    results;
+                    
+                    
+                    
+                    results = arrayAndListConversions.listStringToStringArray(excludedDirectoriesIgnoreCase);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+                
+                public List<String> getExcludedFileNamesIgnoreCaseList()
+                {
+                    return excludedFileNamesIgnoreCase;
+                    
+                }
+                
+                public String[] getExcludedFileNamesIgnoreCaserray()
+                {
+                    String[]
+                    results;
+                    
+                    
+                    
+                    results = arrayAndListConversions.listStringToStringArray(excludedFileNamesIgnoreCase);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+    
+                public List<String> getExcludedFileTypesIgnoreCaseList()
+                {
+                    return excludedFileTypesIgnoreCase;
+                    
+                }
+                
+                public String[] getExcludedFileTypesIgnoreCaseArray()
+                {
+                    String[]
+                    results;
+                    
+                    
+                    
+                    results = arrayAndListConversions.listStringToStringArray(excludedFileTypesIgnoreCase);
+                    
+                    
+                    
+                    return results;
+                    
+                }
+            /*End: get system search options variables.*/
+        /*End: system search options variables.*/
+    
         /*Start: get class List results.*/
             /*Start: all types.*/
                 /*Start: String[]s.*/
@@ -12686,8 +13801,76 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
         /*Start: initialize global variables.*/
             protected void collectMainList()
             {
-                allSystemPaths = sendAndReceive_Beta();
+                collectMainList_Beta();
             
+            }
+    
+            protected void collectMainList_Beta()
+            {
+                List<List>
+                systemPathOptions;
+    
+    
+                
+                systemPathOptions = new ArrayList<List>();
+                
+                
+                
+                pathVisibility.add(useHiddenPaths);
+                pathVisibility.add(useVisiblePaths);
+    
+    
+    
+                systemPathOptions.add(startDirectories);
+                systemPathOptions.add(excludedDirectories);
+                systemPathOptions.add(excludedFileNames);
+                systemPathOptions.add(excludedFileTypes);
+                systemPathOptions.add(excludedDirectoriesIgnoreCase);
+                systemPathOptions.add(excludedFileNamesIgnoreCase);
+                systemPathOptions.add(excludedFileTypesIgnoreCase);
+                systemPathOptions.add(pathVisibility);
+                
+                
+                
+                
+                allSystemPaths = sendAndReceive_Beta(systemPathOptions);
+                
+            }
+    
+            protected String[] convertStringListContentToStringArray(List<String> target)
+            {
+                String[]
+                result;
+                
+                int
+                targetSize;
+    
+    
+    
+                targetSize = target.size();
+                result = new String[targetSize];
+                
+                
+                
+                for(int i = 0; i < targetSize; i++)
+                {
+                    String
+                    currentValue;
+    
+    
+    
+                    currentValue = target.get(i);
+    
+    
+    
+                    result[i] = currentValue;
+                   
+                }
+                
+                
+                
+                return result;
+                
             }
             
             protected void setSubLists()
@@ -12705,6 +13888,40 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
                 setListOnlyDirectoriesVisible();
                 setListOnlyFilesHidden();
                 setListOnlyFilesVisible();
+                
+            }
+    
+            protected void clearSubLists()
+            {
+                clearSubLists_Alpha();
+                clearSubLists_Beta();
+                
+            }
+    
+            protected void clearSubLists_Beta()
+            {
+                allSystemPathsHidden.clear();
+                allSystemPathsVisible.clear();
+                allSystemPathsDirectoryHidden.clear();
+                allSystemPathsDirectoryVisible.clear();
+                allSystemPathsFileHidden.clear();
+                allSystemPathsFileVisible.clear();
+                
+            }
+    
+            protected void setSystemSearchOptionsVariablesStartValues_Beta()
+            {
+                startDirectories = new ArrayList<String>();
+                excludedDirectories = new ArrayList<String>();
+                excludedFileNames = new ArrayList<String>();
+                excludedFileTypes = new ArrayList<String>();
+                excludedDirectoriesIgnoreCase = new ArrayList<String>();
+                excludedFileNamesIgnoreCase = new ArrayList<String>();
+                excludedFileTypesIgnoreCase = new ArrayList<String>();
+                pathVisibility = new ArrayList<Boolean>();
+                
+                setUseHiddenPaths(true);
+                setUseVisiblePaths(true);
                 
             }
         /*End: initialize global variables.*/

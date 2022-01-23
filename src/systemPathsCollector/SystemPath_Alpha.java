@@ -122,7 +122,7 @@ public class SystemPath_Alpha
     private void setIsDirectory()
     {
         this.isDirectory = absoluteFile.isDirectory();
-        
+    
     }
     
     private void setIsFile()

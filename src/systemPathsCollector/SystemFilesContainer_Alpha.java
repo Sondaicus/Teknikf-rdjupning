@@ -10,7 +10,7 @@ import java.util.*;
 public class SystemFilesContainer_Alpha implements ContainerAndOptions
 {
     /*Start: global variables.*/
-        protected static List <SystemPath>
+        protected List <SystemPath>
             allSystemPaths,
             allSystemPathsDirectory,
             allSystemPathsFile;
@@ -43,9 +43,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
             
             public void clearLists()
             {
-                allSystemPaths.clear();
-                allSystemPathsDirectory.clear();
-                allSystemPathsFile.clear();
+                clearSubLists();
     
                 setSystemIsRead(false);
             
@@ -4624,6 +4622,12 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
         /*Start: initialize global variables.*/
             protected void collectMainList()
             {
+                collectMainList_Alpha();
+                
+            }
+    
+            protected void collectMainList_Alpha()
+            {
                 allSystemPaths = sendAndReceive_Alpha();
                 
             }
@@ -4641,6 +4645,20 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
                 
             }
     
+            protected void clearSubLists()
+            {
+                clearSubLists_Alpha();
+                
+            }
+    
+            protected void clearSubLists_Alpha()
+            {
+                allSystemPaths.clear();
+                allSystemPathsDirectory.clear();
+                allSystemPathsFile.clear();
+                
+            }
+            
             protected void setSystemIsRead(boolean status)
             {
                 this.systemIsRead = status;

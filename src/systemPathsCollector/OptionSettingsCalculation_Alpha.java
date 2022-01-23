@@ -3,178 +3,182 @@ package systemPathsCollector;
 
 
 import java.io.*;
-import java.nio.file.*;
 import java.util.*;
 
 
 
 class OptionSettingsCalculation_Alpha implements OptionsAndSearch
 {
-    protected static ArrayList <SystemPath>
-    allCollectedSystemPaths;
-    
-    protected static File[]
-    startDirectories;
-    
-    
-    
-    OptionSettingsCalculation_Alpha()
-    {
-        allCollectedSystemPaths = new ArrayList<SystemPath>();
-    
-    }
-    
-    
-    
-    protected List<SystemPath> returnSystemPaths()
-    {
-        return allCollectedSystemPaths;
+    /*Start: global variables.*/
+        protected ArrayList <SystemPath>
+        allCollectedSystemPaths;
         
-    }
+        protected List<File>
+        startDirectories;
+    /*End: global variables.*/
     
     
     
-    protected void collectSystemPaths()
-    {
-        String
-        filePathTest;
-    
-        
-        
-        setStartDirectories();
-    
-    
-        
-        startSystemSearching();
-        
-    }
-    
-    protected void setStartDirectories()
-    {
-        getSystemRoots();
-        
-    }
-    
-
-
-    protected void getSystemRoots()
-    {
-        startDirectories = File.listRoots();
-        
-    }
-    
-    
-    
-    protected void addToAllCollectedSystemPaths(SystemPath systemPath)
-    {
-        allCollectedSystemPaths.add(systemPath);
-        
-    }
-   
-   
-   
-    protected void startSystemSearching()
-    {
-        int
-        startDirectoriesLength;
-    
-    
-    
-        startDirectoriesLength = startDirectories.length;
-        
-        for(int i = 0; i < startDirectoriesLength; i++)
+    /*Start: constructors.*/
+        OptionSettingsCalculation_Alpha()
         {
-            SystemPath
-            startDirectorySystemPath;
+            initializeStartLists();
         
-            File
-            startDirectoryFile;
+        }
+    /*End: constructors.*/
     
     
     
-            startDirectoryFile = startDirectories[i];
-            startDirectorySystemPath = new SystemPath(startDirectoryFile);
+    /*Start: outside of object usable methods.*/
+        protected List<SystemPath> returnSystemPaths()
+        {
+            return allCollectedSystemPaths;
+            
+        }
         
+        protected void collectSystemPaths()
+        {
+            setStartDirectories();
+            startSystemSearching();
+            
+        }
         
-        
-            searchFolder(startDirectorySystemPath);
+        protected void clearList()
+        {
+            allCollectedSystemPaths.clear();
+            startDirectories.clear();
+            
+        }
+    /*End: outside of object usable methods.*/
+    
+   
+    
+    /*Start: constant methods.*/
+        protected void getSystemRoots()
+        {
+            File[]
+            roots;
+    
+    
+    
+            roots = File.listRoots();
+            startDirectories = arrayAndListConversions.fileArrayToListArray(roots);
+            
+        }
+    
+        protected void addToAllCollectedSystemPaths(SystemPath systemPath)
+        {
+            allCollectedSystemPaths.add(systemPath);
+            
+        }
+    
+        protected void initializeStartLists_Alpha()
+        {
+            allCollectedSystemPaths = new ArrayList<SystemPath>();
+            startDirectories = new ArrayList<File>();
+            
+        }
+    /*End: constant methods.*/
+    
+    
+    
+    /*Start: overriding methods.*/
+        protected void initializeStartLists()
+        {
+            initializeStartLists_Alpha();
         
         }
         
-    }
-    
-
-    protected void searchFolder(SystemPath currentPath)
-    {
-        boolean
-        proceedWithSystemPath,
-        currentFileIsDirectory;
-    
-        File[]
-        currentDirectoryChildren;
-    
-    
-
-        proceedWithSystemPath = checkApprovedSystemPath(currentPath);
-        
-        
-        
-        if(proceedWithSystemPath)
+        protected void setStartDirectories()
         {
-            addToAllCollectedSystemPaths(currentPath);
-            currentFileIsDirectory = currentPath.getIsDirectory();
+            getSystemRoots();
+            
+        }
     
-            if(currentFileIsDirectory)
+        protected void startSystemSearching()
+        {
+            int
+            startDirectoriesSize;
+            
+            
+            
+            startDirectoriesSize = startDirectories.size();
+            
+            for(int i = 0; i < startDirectoriesSize; i++)
             {
-                currentDirectoryChildren = getChildren(currentPath);
+                SystemPath
+                startDirectorySystemPath;
+            
+                File
+                startDirectoryFile;
+                
+                
+                
+                startDirectoryFile = startDirectories.get(i);
+                startDirectorySystemPath = new SystemPath(startDirectoryFile);
+                
+                
+                
+                searchFolder(startDirectorySystemPath);
+                
+            }
+            
+        }
+    
+        protected void searchFolder(SystemPath currentPath)
+        {
+            boolean
+            proceedWithSystemPath,
+            currentFileIsDirectory;
         
+            File[]
+            currentDirectoryChildren;
+            
+            
+            
+            proceedWithSystemPath = checkApprovedSystemPath(currentPath);
+            
+            
+            
+            if(proceedWithSystemPath)
+            {
+                addToAllCollectedSystemPaths(currentPath);
+                currentFileIsDirectory = currentPath.getIsDirectory();
         
-                try
+                if(currentFileIsDirectory)
                 {
-                    for(File folderChild : currentDirectoryChildren)
+                    currentDirectoryChildren = getChildren(currentPath);
+            
+            
+                    try
                     {
-                        SystemPath
-                        child;
-                
-                        
-                
-                        child = new SystemPath(folderChild);
-                
-                        if(child.getIsFile())
+                        for(File folderChild : currentDirectoryChildren)
                         {
-                            addToAllCollectedSystemPaths(child);
-                            
-                        }
-                
-                        if(child.getIsDirectory())
-                        {
-                            searchFolder(child);
+                            SystemPath
+                            child;
                     
+                            
+                    
+                            child = new SystemPath(folderChild);
+                            searchFolder(child);
+                       
                         }
-                
+                        
                     }
+                    catch(NullPointerException e)
+                    {}
                     
                 }
-                catch(NullPointerException e)
-                {}
                 
             }
             
         }
         
-    }
-    
-    protected boolean checkApprovedSystemPath(SystemPath currentPath)
-    {
-        return true;
-        
-    }
-    
-    protected void clearList()
-    {
-        allCollectedSystemPaths.clear();
-        startDirectories = new File[0];
-        
-    }
+        protected boolean checkApprovedSystemPath(SystemPath currentPath)
+        {
+            return true;
+            
+        }
+    /*End: overriding methods.*/
 
 }
