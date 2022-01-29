@@ -2,7 +2,6 @@ package systemPathsCollector;
 
 
 
-import java.io.*;
 import java.util.*;
 
 
@@ -34,6 +33,9 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 	
 	
 	/*Start: constructors.*/
+		OptionSettingsCalculation_Beta()
+		{}
+	
 		OptionSettingsCalculation_Beta(List<List> systemPathOptions_Beta)
 		{
 			allCollectedSystemPaths = new ArrayList<SystemPath>();
@@ -305,7 +307,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 			
 			
 			proceed = true;
-			proceed = checkApprovedSystemPath_Beta(currentPath, proceed);
+			proceed = CheckApprovedSystemPath.Beta(currentPath, proceed);
 			
 			
 			

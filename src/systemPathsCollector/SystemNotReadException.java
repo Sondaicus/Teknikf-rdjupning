@@ -2,7 +2,7 @@ package systemPathsCollector;
 
 
 
-public class SystemNotReadException extends SystemPathsCollectorException
+class SystemNotReadException extends SystemPathsCollectorException
 {
     SystemNotReadException()
     {}

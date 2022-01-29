@@ -13801,21 +13801,25 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
         /*Start: initialize global variables.*/
             protected void collectMainList()
             {
-                collectMainList_Beta();
+                List<List>
+                systemPathOptions;
+    
+                systemPathOptions = collectMainListOptions_Beta();
+                collectMainList_Beta(systemPathOptions);
             
             }
     
-            protected void collectMainList_Beta()
+            protected List<List> collectMainListOptions_Beta()
             {
                 List<List>
                 systemPathOptions;
     
     
-                
+    
                 systemPathOptions = new ArrayList<List>();
-                
-                
-                
+    
+    
+    
                 pathVisibility.add(useHiddenPaths);
                 pathVisibility.add(useVisiblePaths);
     
@@ -13832,7 +13836,12 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
                 
                 
                 
-                
+                return systemPathOptions;
+            
+            }
+    
+            protected void collectMainList_Beta(List<List> systemPathOptions)
+            {
                 allSystemPaths = sendAndReceive_Beta(systemPathOptions);
                 
             }

@@ -133,9 +133,9 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         
             File[]
             currentDirectoryChildren;
-            
-            
-            
+    
+    
+           
             proceedWithSystemPath = checkApprovedSystemPath(currentPath);
             
             
