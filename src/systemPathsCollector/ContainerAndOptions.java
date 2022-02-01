@@ -48,19 +48,19 @@ abstract interface ContainerAndOptions
         
     }
     
-    default List<SystemPath> sendAndReceive(List<List> systemPathOptions_Beta, int threadNumbers)
+    default List<SystemPath> sendAndReceive_Gamma(List<List> systemPathOptions_Beta, int threadNumbers)
     {
-        OptionSettingsCalculation
-        opc;
+        OptionSettingsCalculation_Gamma
+        opc_G;
         
         List<SystemPath>
         results;
         
         
         
-        opc = new OptionSettingsCalculation(systemPathOptions_Beta, threadNumbers);
-        opc.collectSystemPaths();
-        results = opc.returnSystemPaths();
+        opc_G = new OptionSettingsCalculation_Gamma(systemPathOptions_Beta, threadNumbers);
+        opc_G.collectSystemPaths();
+        results = opc_G.returnSystemPaths();
         
         
         

@@ -72,7 +72,7 @@ public class SystemFilesContainer extends SystemFilesContainer_Beta  implements 
 					
 					
 					threadNumbers = esct.getThreadsNumber();
-					allSystemPaths = sendAndReceive(systemPathOptions, threadNumbers);
+					allSystemPaths = sendAndReceive_Gamma(systemPathOptions, threadNumbers);
 					
 				}
 				else
