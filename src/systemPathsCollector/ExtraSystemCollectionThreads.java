@@ -14,7 +14,7 @@ class ExtraSystemCollectionThreads
 	
 	ExtraSystemCollectionThreads() throws ExtraThreadsValueNotApprovedException
 	{
-		setThreadsNumber(0);
+		setThreadsNumber(-1);
 		
 	}
 	
@@ -34,15 +34,13 @@ class ExtraSystemCollectionThreads
 	
 	void setThreadsNumber(int input) throws ExtraThreadsValueNotApprovedException
 	{
-		if(input < 0)
+		if(input < -1)
 		{
 			throw new ExtraThreadsValueNotApprovedException();
 			
 		}
 		else
 		{
-			this.threadsNumber = input;
-			
 			if(input == 0)
 			{
 				setExtraThreadsUse(false);
@@ -51,6 +49,17 @@ class ExtraSystemCollectionThreads
 			else
 			{
 				setExtraThreadsUse(true);
+				
+			}
+			
+			if(input == -1)
+			{
+				this.threadsNumber = Runtime.getRuntime().availableProcessors();
+				
+			}
+			else
+			{
+				this.threadsNumber = input;
 				
 			}
 			

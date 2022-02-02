@@ -27,24 +27,5 @@ abstract interface OptionsAndSearch
         return results;
         
     }
-    
-    default File[] getChildren(File currentPath)
-    {
-        CollectChildrenPaths
-        ccpffi;
-        
-        File[]
-        results;
-        
-        
-        
-        ccpffi = new CollectChildrenPaths(currentPath);
-        results = ccpffi.getChildren();
-        
-        
-        
-        return results;
-        
-    }
 
 }

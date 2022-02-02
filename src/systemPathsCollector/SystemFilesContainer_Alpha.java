@@ -33,7 +33,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
     
     /*Start: public methods.*/
         /*Start: setting global variables.*/
-            public void readFromSystem()
+            public void readFromSystem() throws InterruptedException
             {
                 collectMainList();
                 setSubLists();
@@ -4620,7 +4620,7 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
     
     /*Start: protected methods.*/
         /*Start: initialize global variables.*/
-            protected void collectMainList()
+            protected void collectMainList() throws InterruptedException
             {
                 collectMainList_Alpha();
                 

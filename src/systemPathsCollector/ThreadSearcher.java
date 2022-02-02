@@ -7,92 +7,44 @@ import java.util.*;
 
 
 
-class ThreadSearcher implements Runnable
+class ThreadSearcher extends Thread implements Runnable, OptionsAndSearch
 {
 	protected SystemPath
-	currentSystemPath;
-	
-	protected CheckApprovedSystemPath
-	casp;
+	parentDirectory;
 	
 	protected File[]
-	currentDirectoryChildren;
+	childrenDirectoryFileArray;
 	
-	protected ArrayList <SystemPath>
-	allCollectedSystemPaths;
+	protected List<SystemPath>
+	childrenDirectorySystemPathList;
 	
 	
 	
-	ThreadSearcher(SystemPath currentSystemPath, List<List> systemPathOptions)
+	ThreadSearcher(SystemPath parentDirectory)
 	{
-		setCurrentSystemPath(currentSystemPath);
-		setCasp(systemPathOptions);
+		setParentDirectory(parentDirectory);
 		
 	}
 	
 	
 	
 	
-	protected void setCurrentSystemPath(SystemPath currentSystemPath)
+	protected void setParentDirectory(SystemPath parentDirectory)
 	{
-		this.currentSystemPath = currentSystemPath;
+		this.parentDirectory = parentDirectory;
 		
 	}
 	
-	protected void setAllCollectedSystemPaths(ArrayList <SystemPath> allCollectedSystemPaths)
+	protected List<SystemPath> getChildren()
 	{
-		this.allCollectedSystemPaths = allCollectedSystemPaths;
+		return childrenDirectorySystemPathList;
 		
 	}
-	
-	protected void setCasp(List<List> systemPathOptions)
-	{
-		casp = new CheckApprovedSystemPath(systemPathOptions);
-		
-	}
-	
-	
-	protected Object[] checkApprovedPath(SystemPath currentPath, boolean proceed)
-	{
-		Object[]
-		results;
 
-		
-		
-		results = casp.checkApprovedPath(currentPath, proceed);
-		
-		
-		
-		return results;
-		
-	}
-	
-	protected Object[] checkApplicableDirectory(boolean proceed, List<List> excludedDirectories)
-	{
-		Object[]
-		results;
-		
-		
-		
-		results = casp.checkApplicableDirectory(currentSystemPath, proceed, excludedDirectories);
-		
-		
-		
-		return results;
-		
-	}
-	
-	protected void findApplicableDirectory(List<List> excludedDirectories, ArrayList<SystemPath> unfinishedParentDirectories)
-	{
-	
-	
-	}
-	
-	
-	
 	public void run()
 	{
-	
+		childrenDirectoryFileArray = getChildren(parentDirectory);
+		childrenDirectorySystemPathList = ArrayAndListConversions.fileArrayToListSystemPath(childrenDirectoryFileArray);
 	
 	}
 }

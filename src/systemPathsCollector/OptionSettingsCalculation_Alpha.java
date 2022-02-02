@@ -15,6 +15,12 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         
         protected List<File>
         startDirectories;
+        
+        protected Timer
+        processToUser;
+        
+        protected SystemPathTimerTask
+        systemPathTimerTask;
     /*End: global variables.*/
     
     
@@ -62,7 +68,7 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
     
     
             roots = File.listRoots();
-            startDirectories = arrayAndListConversions.fileArrayToListArray(roots);
+            startDirectories = ArrayAndListConversions.fileArrayToListArray(roots);
             
         }
     
@@ -78,6 +84,14 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
             startDirectories = new ArrayList<File>();
             
         }
+        
+     /*   protected void setTimers()
+        {
+            processToUser = new Timer();
+            systemPathTimerTask = new SystemPathTimerTask(false, 0);
+      
+            
+        }*/
     /*End: constant methods.*/
     
     
@@ -86,6 +100,7 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         protected void initializeStartLists()
         {
             initializeStartLists_Alpha();
+          //  setTimers();
         
         }
         
@@ -99,8 +114,8 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         {
             int
             startDirectoriesSize;
-            
-            
+    
+    
             
             startDirectoriesSize = startDirectories.size();
             
@@ -128,20 +143,28 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         protected void searchFolder(SystemPath currentPath)
         {
             boolean
-            proceedWithSystemPath,
-            currentFileIsDirectory;
+            proceedWithSystemPath;
         
             File[]
             currentDirectoryChildren;
     
     
-           
+    
+            systemPathTimerTask.setListSize(allCollectedSystemPaths.size());
+            
+            
+            
             proceedWithSystemPath = checkApprovedSystemPath(currentPath);
             
             
             
             if(proceedWithSystemPath)
             {
+                boolean
+                currentFileIsDirectory;
+                
+                
+                
                 addToAllCollectedSystemPaths(currentPath);
                 currentFileIsDirectory = currentPath.getIsDirectory();
         

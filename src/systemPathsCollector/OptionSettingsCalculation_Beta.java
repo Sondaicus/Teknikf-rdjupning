@@ -16,7 +16,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 		specifiedStartDirectories;
 	
 		protected CheckApprovedSystemPath
-		casp_b;
+		casp;
 	/*End: global variables.*/
 	
 	
@@ -28,6 +28,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 		OptionSettingsCalculation_Beta(List<List> systemPathOptions_Beta)
 		{
 			allCollectedSystemPaths = new ArrayList<SystemPath>();
+		//	setTimers();
 			setGlobalSettingVariables_Beta(systemPathOptions_Beta);
 			setStartDirectories();
 			
@@ -41,7 +42,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 		{
 			startDirectoriesValues = (List<String>) systemPathOptions.get(0);
 			specifiedStartDirectories = InputAndReturnTypes.checkVariableValueToBoolean(startDirectoriesValues, 0);
-			casp_b = new CheckApprovedSystemPath(systemPathOptions);
+			casp = new CheckApprovedSystemPath(systemPathOptions);
 			
 		}
 	/*End: new methods.*/
@@ -58,7 +59,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 			}
 			else
 			{
-				startDirectories = arrayAndListConversions.listStringToListFile(startDirectoriesValues);
+				startDirectories = ArrayAndListConversions.listStringToListFile(startDirectoriesValues);
 				
 			}
 			
@@ -75,7 +76,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 			
 			
 			proceed = true;
-			results = casp_b.checkApprovedPath(currentPath, proceed);
+			results = casp.checkApprovedPath(currentPath, proceed);
 			proceed = (Boolean) results[0];
 			
 			

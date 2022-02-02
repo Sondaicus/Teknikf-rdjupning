@@ -49,7 +49,7 @@ public class SystemFilesContainer extends SystemFilesContainer_Beta  implements 
 				
 			}
 	
-			protected void collectMainList()
+			protected void collectMainList() throws InterruptedException
 			{
 				List<List>
 				systemPathOptions;

@@ -997,7 +997,7 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
                     
                     
                     
-                    results = arrayAndListConversions.listStringToStringArray(startDirectories);
+                    results = ArrayAndListConversions.listStringToStringArray(startDirectories);
                     
                     
                     
@@ -1018,7 +1018,7 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
                     
                     
                     
-                    results = arrayAndListConversions.listStringToStringArray(excludedDirectories);
+                    results = ArrayAndListConversions.listStringToStringArray(excludedDirectories);
                     
                     
                     
@@ -1039,7 +1039,7 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
                     
                     
                     
-                    results = arrayAndListConversions.listStringToStringArray(excludedFileNames);
+                    results = ArrayAndListConversions.listStringToStringArray(excludedFileNames);
                     
                     
                     
@@ -1060,7 +1060,7 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
                     
                     
                     
-                    results = arrayAndListConversions.listStringToStringArray(excludedFileTypes);
+                    results = ArrayAndListConversions.listStringToStringArray(excludedFileTypes);
                     
                     
                     
@@ -1081,7 +1081,7 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
                     
                     
                     
-                    results = arrayAndListConversions.listStringToStringArray(excludedDirectoriesIgnoreCase);
+                    results = ArrayAndListConversions.listStringToStringArray(excludedDirectoriesIgnoreCase);
                     
                     
                     
@@ -1102,7 +1102,7 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
                     
                     
                     
-                    results = arrayAndListConversions.listStringToStringArray(excludedFileNamesIgnoreCase);
+                    results = ArrayAndListConversions.listStringToStringArray(excludedFileNamesIgnoreCase);
                     
                     
                     
@@ -1123,7 +1123,7 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
                     
                     
                     
-                    results = arrayAndListConversions.listStringToStringArray(excludedFileTypesIgnoreCase);
+                    results = ArrayAndListConversions.listStringToStringArray(excludedFileTypesIgnoreCase);
                     
                     
                     
@@ -13799,7 +13799,7 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
 
     /*Start: protected methods.*/
         /*Start: initialize global variables.*/
-            protected void collectMainList()
+            protected void collectMainList() throws InterruptedException
             {
                 List<List>
                 systemPathOptions;
