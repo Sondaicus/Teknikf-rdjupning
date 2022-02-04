@@ -17,6 +17,9 @@ public class OptionSettingsCalculation_Gamma extends OptionSettingsCalculation_B
 	
 		protected ArrayList<SystemPath>
 		unfinishedParentDirectories;
+		
+		protected List<ThreadSearcher>
+		allActiveThreadSearches;
 	/*End: global variables.*/
 	
 	
@@ -32,12 +35,33 @@ public class OptionSettingsCalculation_Gamma extends OptionSettingsCalculation_B
 			setStartDirectories();
 			setGlobalSettingVariables_Gamma(maximumThreadNumbers);
 			setTimers();
-			searchDirectoriesMultiThread();
+			setThreads();
+			checkStillEmptyParentDirectories();
 			
 		}
 	/*End: constructors.*/
 	
 	
+	protected void setThreads()
+	{
+		allActiveThreadSearches = new ArrayList<ThreadSearcher>();
+		
+		
+		
+		for(int i = 0; i < allocatedProcessors; i++)
+		{
+			ThreadSearcher
+			currentThreadSearcher;
+			
+			
+			
+			currentThreadSearcher = new ThreadSearcher();
+			
+			allActiveThreadSearches.add(currentThreadSearcher);
+			
+		}
+		
+	}
 	
 	protected void setTimers()
 	{
@@ -61,7 +85,7 @@ public class OptionSettingsCalculation_Gamma extends OptionSettingsCalculation_B
 		
 		processToUser = new Timer();
 		systemPathTimerTask = new SystemPathTimerTask(usingExtraThreads, allocatedProcessors);
-		processToUser.scheduleAtFixedRate(systemPathTimerTask, 0, 10000);
+		processToUser.scheduleAtFixedRate(systemPathTimerTask, 10000, 10000);
 		
 	}
 	
@@ -125,22 +149,42 @@ public class OptionSettingsCalculation_Gamma extends OptionSettingsCalculation_B
 	
 	
 	
+	protected void checkStillEmptyParentDirectories() throws InterruptedException
+	{
+		int
+		unfinishedParentDirectoriesSize;
+		
+		
+		
+		unfinishedParentDirectoriesSize = unfinishedParentDirectories.size();
+		
+		
+		
+		while(unfinishedParentDirectoriesSize != 0)
+		{
+			setThreads();
+			searchDirectoriesMultiThread();
+			unfinishedParentDirectoriesSize = unfinishedParentDirectories.size();
+			
+		}
+		
+		
+		
+		processToUser.cancel();
+		
+	}
+	
 	protected void searchDirectoriesMultiThread() throws InterruptedException
 	{
 		int
 		unfinishedParentDirectoriesSize,
-		allActiveThreadSearchesSize,
+		addedThreadSearches,
 		allCollectedSystemPathsSize;
 		
-		List<ThreadSearcher>
-		allActiveThreadSearches;
 		
 		
-		
-		
-		
-		allActiveThreadSearches = new ArrayList<ThreadSearcher>();
 		unfinishedParentDirectoriesSize = unfinishedParentDirectories.size();
+		addedThreadSearches = 0;
 		
 
 		
@@ -149,30 +193,20 @@ public class OptionSettingsCalculation_Gamma extends OptionSettingsCalculation_B
 			SystemPath
 			currentParentDirectory;
 			
-			ThreadSearcher
-			currentThreadSearcher;
-			
 			
 			
 			currentParentDirectory = unfinishedParentDirectories.get(i);
+			allActiveThreadSearches.get(i).setParentDirectory(currentParentDirectory);
 			
 			
 			
-			
-			
-			currentThreadSearcher = new ThreadSearcher(currentParentDirectory);
-			
-			allActiveThreadSearches.add(currentThreadSearcher);
+			++addedThreadSearches;
 		
 		}
 		
 		
 		
-		allActiveThreadSearchesSize = allActiveThreadSearches.size();
-
-		
-		
-		for(int i = 0; i < allActiveThreadSearchesSize; i++)
+		for(int i = 0; i < addedThreadSearches; i++)
 		{
 			unfinishedParentDirectories.remove(0);
 			
@@ -180,15 +214,15 @@ public class OptionSettingsCalculation_Gamma extends OptionSettingsCalculation_B
 		
 		
 		
-		for(int i = 0; i < allActiveThreadSearchesSize; i++)
+		for(int i = 0; i < addedThreadSearches; i++)
 		{
 			allActiveThreadSearches.get(i).start();
-		
+			
 		}
 		
 		
 		
-		for(int i1 = 0; i1 < allActiveThreadSearchesSize; i1++)
+		for(int i1 = 0; i1 < addedThreadSearches; i1++)
 		{
 			List<SystemPath>
 			childrenPaths;
@@ -200,7 +234,6 @@ public class OptionSettingsCalculation_Gamma extends OptionSettingsCalculation_B
 			
 			allActiveThreadSearches.get(i1).join();
 			childrenPaths = allActiveThreadSearches.get(i1).getChildren();
-			allActiveThreadSearches.get(i1).interrupt();
 			childrenPathsSize = childrenPaths.size();
 			
 			
@@ -241,22 +274,10 @@ public class OptionSettingsCalculation_Gamma extends OptionSettingsCalculation_B
 			}
 			
 		}
-	
+		
 		
 		allCollectedSystemPathsSize = allCollectedSystemPaths.size();
 		systemPathTimerTask.setListSize(allCollectedSystemPathsSize);
-		
-		
-		
-		unfinishedParentDirectoriesSize = unfinishedParentDirectories.size();
-
-		if(unfinishedParentDirectoriesSize > 0)
-		{
-			searchDirectoriesMultiThread();
-			
-		}
-		
-		
 		
 	}
 	

@@ -18,13 +18,13 @@ class ThreadSearcher extends Thread implements Runnable, OptionsAndSearch
 	protected List<SystemPath>
 	childrenDirectorySystemPathList;
 	
+	boolean
+	running;
 	
 	
-	ThreadSearcher(SystemPath parentDirectory)
-	{
-		setParentDirectory(parentDirectory);
-		
-	}
+	
+	ThreadSearcher()
+	{}
 	
 	
 	
@@ -32,6 +32,18 @@ class ThreadSearcher extends Thread implements Runnable, OptionsAndSearch
 	protected void setParentDirectory(SystemPath parentDirectory)
 	{
 		this.parentDirectory = parentDirectory;
+		
+	}
+	
+	protected SystemPath getParentDirectory()
+	{
+		return parentDirectory;
+		
+	}
+	
+	protected void clearParentDirectory()
+	{
+		this.parentDirectory = null;
 		
 	}
 	
@@ -45,6 +57,7 @@ class ThreadSearcher extends Thread implements Runnable, OptionsAndSearch
 	{
 		childrenDirectoryFileArray = getChildren(parentDirectory);
 		childrenDirectorySystemPathList = ArrayAndListConversions.fileArrayToListSystemPath(childrenDirectoryFileArray);
-	
+		
 	}
+	
 }

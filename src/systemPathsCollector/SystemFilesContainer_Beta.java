@@ -13802,10 +13802,18 @@ public class SystemFilesContainer_Beta extends SystemFilesContainer_Alpha
             protected void collectMainList() throws InterruptedException
             {
                 List<List>
-                systemPathOptions;
+                settings,
+                settings_Beta;
     
-                systemPathOptions = collectMainListOptions_Beta();
-                collectMainList_Beta(systemPathOptions);
+    
+    
+                settings = new ArrayList<List>();
+                settings_Beta = collectMainListOptions_Beta();
+                settings.add(settings_Beta);
+                
+                
+                
+                collectMainList_Beta(settings);
             
             }
     

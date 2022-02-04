@@ -21,14 +21,22 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         
         protected SystemPathTimerTask
         systemPathTimerTask;
+        
+        protected boolean
+        useTimer;
+    
+        protected int
+        maximumThreadNumbers,
+        systemThreadNumbers,
+        allocatedProcessors;
     /*End: global variables.*/
     
     
     
     /*Start: constructors.*/
-        OptionSettingsCalculation_Alpha()
+        OptionSettingsCalculation_Alpha(List<List> settings)
         {
-            initializeStartLists();
+            initializeStartValues(settings);
         
         }
     /*End: constructors.*/
@@ -78,29 +86,49 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
             
         }
     
-        protected void initializeStartLists_Alpha()
+        protected void initializeStartValues_Alpha(List<List> settings)
         {
+            int
+            allocatedProcessors;
+            
             allCollectedSystemPaths = new ArrayList<SystemPath>();
             startDirectories = new ArrayList<File>();
+    
+    
+    
+            this.useTimer = (boolean) settings.get(0).get(0);
+            this.maximumThreadNumbers = (int) settings.get(1).get(0);
+            this.systemThreadNumbers = Runtime.getRuntime().availableProcessors();
+    
+            
+            
+            allocatedProcessors = 0;
+    
+            for(int i = 0; i < maximumThreadNumbers && i < systemThreadNumbers; i++)
+            {
+                ++allocatedProcessors;
+        
+            }
+    
+            this.allocatedProcessors = allocatedProcessors;
+            
+            
+    
+            if(useTimer)
+            {
+                setTimers(allocatedProcessors);
+                
+            }
             
         }
-        
-     /*   protected void setTimers()
-        {
-            processToUser = new Timer();
-            systemPathTimerTask = new SystemPathTimerTask(false, 0);
-      
-            
-        }*/
     /*End: constant methods.*/
     
     
     
     /*Start: overriding methods.*/
-        protected void initializeStartLists()
+        protected void initializeStartValues(List<List> settings)
         {
-            initializeStartLists_Alpha();
-          //  setTimers();
+            initializeStartValues_Alpha(settings);
         
         }
         
@@ -200,6 +228,31 @@ class OptionSettingsCalculation_Alpha implements OptionsAndSearch
         protected boolean checkApprovedSystemPath(SystemPath currentPath)
         {
             return true;
+            
+        }
+    
+        protected void setTimers(int allocatedProcessors)
+        {
+            boolean
+            usingExtraThreads;
+            
+            
+            
+            if(allocatedProcessors > 1)
+            {
+                usingExtraThreads = true;
+        
+            }
+            else
+            {
+                usingExtraThreads = false;
+        
+            }
+   
+            
+            
+            processToUser = new Timer();
+            systemPathTimerTask = new SystemPathTimerTask(usingExtraThreads, allocatedProcessors);
             
         }
     /*End: overriding methods.*/

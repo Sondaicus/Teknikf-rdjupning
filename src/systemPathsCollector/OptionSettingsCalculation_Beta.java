@@ -2,6 +2,7 @@ package systemPathsCollector;
 
 
 
+import java.io.File;
 import java.util.*;
 
 
@@ -25,12 +26,10 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 		OptionSettingsCalculation_Beta()
 		{}
 	
-		OptionSettingsCalculation_Beta(List<List> systemPathOptions_Beta)
+		OptionSettingsCalculation_Beta(List<List> settings)
 		{
-			allCollectedSystemPaths = new ArrayList<SystemPath>();
-		//	setTimers();
-			setGlobalSettingVariables_Beta(systemPathOptions_Beta);
-			setStartDirectories();
+			initializeStartValues(settings);
+			setTimers(settings);
 			
 		}
 	/*End: constructors.*/
@@ -38,11 +37,27 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 	
 	
 	/*Start: new methods.*/
-		protected void setGlobalSettingVariables_Beta(List<List> systemPathOptions)
+		protected void setGlobalSettingVariables_Beta(List<List> settings_Beta)
 		{
-			startDirectoriesValues = (List<String>) systemPathOptions.get(0);
+			startDirectoriesValues = (List<String>) settings_Beta.get(0);
 			specifiedStartDirectories = InputAndReturnTypes.checkVariableValueToBoolean(startDirectoriesValues, 0);
-			casp = new CheckApprovedSystemPath(systemPathOptions);
+			casp = new CheckApprovedSystemPath(settings_Beta);
+			
+		}
+	
+		protected void initializeStartValues_Beta(List<List> settings)
+		{
+			List<List>
+			settings_Beta;
+			
+			
+			
+			settings_Beta = settings.get(0);
+			
+			
+			
+			setGlobalSettingVariables_Beta(settings_Beta);
+			setStartDirectories();
 			
 		}
 	/*End: new methods.*/
@@ -50,6 +65,13 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 	
 	
 	/*Start: overriding methods.*/
+		protected void initializeStartValues(List<List> settings)
+		{
+			initializeStartValues_Alpha();
+			initializeStartValues_Beta(settings);
+			
+		}
+	
 		protected void setStartDirectories()
 		{
 			if(!specifiedStartDirectories)
@@ -81,6 +103,13 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 			
 			
 			return proceed;
+			
+		}
+	
+		protected void setTimers(List<List> settings)
+		{
+			processToUser = new Timer();
+			systemPathTimerTask = new SystemPathTimerTask(false, 0);
 			
 		}
 	/*End overriding methods.*/

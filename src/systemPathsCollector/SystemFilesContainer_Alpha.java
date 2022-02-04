@@ -15,6 +15,9 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
             allSystemPathsDirectory,
             allSystemPathsFile;
         
+        protected List<List>
+        settings;
+        
         protected boolean
             systemIsRead;
     /*End: global variables.*/
@@ -44,7 +47,6 @@ public class SystemFilesContainer_Alpha implements ContainerAndOptions
             public void clearLists()
             {
                 clearSubLists();
-    
                 setSystemIsRead(false);
             
             }
