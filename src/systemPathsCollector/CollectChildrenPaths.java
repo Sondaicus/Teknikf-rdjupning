@@ -14,7 +14,7 @@ class CollectChildrenPaths
     CollectChildrenPaths()
     {}
     
-    CollectChildrenPaths(SystemPath_Alpha input)
+    CollectChildrenPaths(SystemPath input)
     {
         setFile(input);
         
@@ -28,7 +28,7 @@ class CollectChildrenPaths
     
     
     
-    void setFile(SystemPath_Alpha input)
+    void setFile(SystemPath input)
     {
         this.pathValueFile = input.getAbsoluteFile();
         

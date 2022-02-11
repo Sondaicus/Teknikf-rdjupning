@@ -7,7 +7,7 @@ import java.util.*;
 
 
 
-interface arrayAndListConversions
+interface ArrayAndListConversions
 {
 	static List<String> stringArrayToListString(String[] input)
 	{
@@ -141,4 +141,53 @@ interface arrayAndListConversions
 		return results;
 		
 	}
+	
+	static List<SystemPath> fileArrayToListSystemPath(File[] input)
+	{
+		List<SystemPath>
+		result;
+		
+		int
+		inputLength;
+		
+		
+		
+		result = new ArrayList<SystemPath>();
+		
+		try
+		{
+			inputLength = input.length;
+			
+		}
+		catch(NullPointerException e)
+		{
+			inputLength = 0;
+			
+		}
+		
+		
+		
+		for(int i = 0; i < inputLength; i++)
+		{
+			File
+			currentFile;
+			
+			SystemPath
+			currentSystemPath;
+			
+			
+			
+			currentFile = input[i];
+			currentSystemPath = new SystemPath(currentFile);
+			
+			result.add(currentSystemPath);
+			
+		}
+		
+		
+		
+		return result;
+		
+	}
+	
 }

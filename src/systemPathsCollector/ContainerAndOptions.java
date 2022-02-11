@@ -8,18 +8,44 @@ import java.util.*;
 
 abstract interface ContainerAndOptions
 {
-    default List<SystemPath> sendAndReceive_Alpha()
+    default List<SystemPath> sendAndReceive(List<List> allSettings) throws InterruptedException
     {
-        OptionSettingsCalculation_Alpha
+        OptionSettingsCalculation
         opc;
-        
+    
         List<SystemPath>
         results;
+        
+        List<ExtraSystemCollectionThreads>
+        esctList;
     
+        ExtraSystemCollectionThreads
+        esct;
+        
+        boolean
+        useMultiThreads;
+    
+    
+    
+        esctList = (List<ExtraSystemCollectionThreads>) allSettings.get(0);
+        esct = esctList.get(0);
+        useMultiThreads = (Boolean) esct.getExtraThreadsUse();
         
         
-        opc = new OptionSettingsCalculation_Alpha();
-        opc.collectSystemPaths();
+        
+        if(useMultiThreads)
+        {
+            opc = new OptionSettingsCalculation_MultiThread(allSettings);
+            
+        }
+        else
+        {
+            opc = new OptionSettingsCalculation_SingleThread(allSettings);
+            
+        }
+        
+        
+        
         results = opc.returnSystemPaths();
         
         
@@ -27,27 +53,5 @@ abstract interface ContainerAndOptions
         return results;
         
     }
-    
-    default List<SystemPath> sendAndReceive_Beta(List<List> systemPathOptions_Beta)
-    {
-        OptionSettingsCalculation_Alpha
-        opc;
-        
-        List<SystemPath>
-        results;
-        
-        
-        
-        opc = new OptionSettingsCalculation_Beta(systemPathOptions_Beta);
-        opc.collectSystemPaths();
-        results = opc.returnSystemPaths();
-        
-        
-        
-        return results;
-        
-    }
-    
-    
     
 }

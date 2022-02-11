@@ -2,16 +2,15 @@ package systemPathsCollector;
 
 
 
-import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
-public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Alpha implements OptionsAndSearch
+class CheckApprovedSystemPath
 {
 	/*Start: global variables.*/
-		protected List<String>
-		startDirectoriesValues,
+		List <String>
 		excludedDirectories,
 		excludedFileNames,
 		excludedFileTypes,
@@ -19,10 +18,9 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 		excludedFileNamesIgnoreCase,
 		excludedFileTypesIgnoreCase;
 		
-		protected boolean
+		boolean
 		useHiddenPaths,
 		useVisiblePaths,
-		specifiedStartDirectories,
 		specifiedExcludedDirectories,
 		specifiedExcludedFileNames,
 		specifiedExcludedFileTypes,
@@ -34,21 +32,18 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 	
 	
 	/*Start: constructors.*/
-		OptionSettingsCalculation_Beta(List<List> systemPathOptions_Beta)
+		CheckApprovedSystemPath(List<List> systemPathOptions)
 		{
-			allCollectedSystemPaths = new ArrayList<SystemPath>();
-			setGlobalSettingVariables_Beta(systemPathOptions_Beta);
-			setStartDirectories();
+			setGlobalSettingVariables_Beta(systemPathOptions);
 			
 		}
 	/*End: constructors.*/
 	
 	
 	
-	/*Start: new methods.*/
-		protected void setGlobalSettingVariables_Beta(List<List> systemPathOptions)
+	/*Start: variable methods.*/
+		void setGlobalSettingVariables_Beta(List<List> systemPathOptions)
 		{
-			startDirectoriesValues = (List<String>) systemPathOptions.get(0);
 			excludedDirectories = (List<String>) systemPathOptions.get(1);
 			excludedFileNames = (List<String>) systemPathOptions.get(2);
 			excludedFileTypes =  (List<String>) systemPathOptions.get(3);
@@ -60,52 +55,40 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 			
 			
 			
-			specifiedStartDirectories = checkVariableValueToBoolean(startDirectoriesValues, 0);
-			specifiedExcludedDirectories = checkVariableValueToBoolean(excludedDirectories, 0);
-			specifiedExcludedFileNames =  checkVariableValueToBoolean(excludedFileNames, 0);
-			specifiedExcludedFileTypes =  checkVariableValueToBoolean(excludedFileTypes, 0);
-			specifiedExcludedDirectoriesIgnoreCase = checkVariableValueToBoolean(excludedDirectoriesIgnoreCase, 0);
-			specifiedExcludedFileNamesIgnoreCase =  checkVariableValueToBoolean(excludedFileNamesIgnoreCase, 0);
-			specifiedExcludedFileTypesIgnoreCase =  checkVariableValueToBoolean(excludedFileTypesIgnoreCase, 0);
+			specifiedExcludedDirectories = InputAndReturnTypes.checkVariableValueToBoolean(excludedDirectories, 0);
+			specifiedExcludedFileNames =  InputAndReturnTypes.checkVariableValueToBoolean(excludedFileNames, 0);
+			specifiedExcludedFileTypes =  InputAndReturnTypes.checkVariableValueToBoolean(excludedFileTypes, 0);
+			specifiedExcludedDirectoriesIgnoreCase = InputAndReturnTypes.checkVariableValueToBoolean(excludedDirectoriesIgnoreCase, 0);
+			specifiedExcludedFileNamesIgnoreCase =  InputAndReturnTypes.checkVariableValueToBoolean(excludedFileNamesIgnoreCase, 0);
+			specifiedExcludedFileTypesIgnoreCase =  InputAndReturnTypes.checkVariableValueToBoolean(excludedFileTypesIgnoreCase, 0);
 			
 		}
-		
-		protected boolean checkVariableValueToBoolean(List variable, int value)
+	/*End: variable methods.*/
+	
+	
+	
+	/*Start: return methods.*/
+		Object[] checkApprovedPath(SystemPath currentPath, boolean proceed)
 		{
-			boolean
+			Object[]
 			result;
 			
 			int
-			variableSize;
+			failedCheck;
 			
 			
 			
-			variableSize = variable.size();
-			
-			if(variableSize == value)
-			{
-				result = false;
-				
-			}
-			else
-			{
-				result = true;
-				
-			}
+			result = new Object[2];
+			failedCheck = 0;
 			
 			
 			
-			return result;
-			
-		}
-	
-		protected boolean checkApprovedSystemPath_Beta(SystemPath currentPath, boolean proceed)
-		{
 			if(proceed && !useHiddenPaths)
 			{
 				if(currentPath.getIsHidden())
 				{
 					proceed = false;
+					failedCheck = 1;
 					
 				}
 				
@@ -116,6 +99,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 				if(!currentPath.getIsHidden())
 				{
 					proceed = false;
+					failedCheck = 2;
 					
 				}
 				
@@ -138,6 +122,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 					if(notApproved)
 					{
 						proceed = false;
+						failedCheck = 3;
 						
 					}
 					
@@ -166,6 +151,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 					if(notApproved1 || notApproved2)
 					{
 						proceed = false;
+						failedCheck = 4;
 						
 					}
 					
@@ -180,16 +166,17 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 					boolean
 					notApproved;
 					
-				
+					
 					
 					notApproved = excludedFileTypes.stream()
 					.anyMatch(s -> s.equals(currentPath.getFileExtension()));
-			
-				
+					
+					
 					
 					if(notApproved)
 					{
 						proceed = false;
+						failedCheck = 5;
 						
 					}
 					
@@ -214,6 +201,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 					if(notApproved)
 					{
 						proceed = false;
+						failedCheck = 6;
 						
 					}
 					
@@ -242,6 +230,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 					if(notApproved1 || notApproved2)
 					{
 						proceed = false;
+						failedCheck = 7;
 						
 					}
 					
@@ -266,6 +255,7 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 					if(notApproved)
 					{
 						proceed = false;
+						failedCheck = 8;
 						
 					}
 					
@@ -273,45 +263,22 @@ public class OptionSettingsCalculation_Beta extends OptionSettingsCalculation_Al
 				
 			}
 			
-			
-			return proceed;
-			
-		}
-	/*End: new methods.*/
-	
-	
-	
-	/*Start: overriding methods.*/
-		protected void setStartDirectories()
-		{
-			if(!specifiedStartDirectories)
+			if(proceed)
 			{
-				getSystemRoots();
-				
-			}
-			else
-			{
-				startDirectories = arrayAndListConversions.listStringToListFile(startDirectoriesValues);
+				failedCheck = -1;
 				
 			}
 			
-		}
-	
-		protected boolean checkApprovedSystemPath(SystemPath currentPath)
-		{
-			boolean
-			proceed;
+			
+			
+			result[0] = (Boolean) proceed;
+			result[1] = (Integer) failedCheck;
 			
 			
 			
-			proceed = true;
-			proceed = checkApprovedSystemPath_Beta(currentPath, proceed);
-			
-			
-			
-			return proceed;
+			return result;
 			
 		}
-	/*End overriding methods.*/
+	/*End: return methods.*/
 	
 }
