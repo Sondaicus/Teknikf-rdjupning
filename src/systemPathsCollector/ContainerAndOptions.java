@@ -8,59 +8,45 @@ import java.util.*;
 
 abstract interface ContainerAndOptions
 {
-    default List<SystemPath> sendAndReceive_Alpha()
+    default List<SystemPath> sendAndReceive(List<List> allSettings) throws InterruptedException
     {
-        OptionSettingsCalculation_Alpha
-        opc_A;
-        
-        List<SystemPath>
-        results;
+        OptionSettingsCalculation
+        opc;
     
-    
-    
-        opc_A = new OptionSettingsCalculation_Alpha();
-        opc_A.collectSystemPaths();
-        results = opc_A.returnSystemPaths();
-        
-        
-        
-        return results;
-        
-    }
-    
-    default List<SystemPath> sendAndReceive_Beta(List<List> systemPathOptions_Beta)
-    {
-        OptionSettingsCalculation_Beta
-        opc_B;
-        
-        List<SystemPath>
-        results;
-    
-    
-    
-        opc_B = new OptionSettingsCalculation_Beta(systemPathOptions_Beta);
-        opc_B.collectSystemPaths();
-        results = opc_B.returnSystemPaths();
-        
-        
-        
-        return results;
-        
-    }
-    
-    default List<SystemPath> sendAndReceive_Gamma(List<List> systemPathOptions_Beta, int threadNumbers)  throws InterruptedException
-    {
-        OptionSettingsCalculation_Gamma
-        opc_G;
-        
         List<SystemPath>
         results;
         
+        List<ExtraSystemCollectionThreads>
+        esctList;
+    
+        ExtraSystemCollectionThreads
+        esct;
+        
+        boolean
+        useMultiThreads;
+    
+    
+    
+        esctList = (List<ExtraSystemCollectionThreads>) allSettings.get(0);
+        esct = esctList.get(0);
+        useMultiThreads = (Boolean) esct.getExtraThreadsUse();
         
         
-        opc_G = new OptionSettingsCalculation_Gamma(systemPathOptions_Beta, threadNumbers);
-        opc_G.collectSystemPaths();
-        results = opc_G.returnSystemPaths();
+        
+        if(useMultiThreads)
+        {
+            opc = new OptionSettingsCalculation_MultiThread(allSettings);
+            
+        }
+        else
+        {
+            opc = new OptionSettingsCalculation_SingleThread(allSettings);
+            
+        }
+        
+        
+        
+        results = opc.returnSystemPaths();
         
         
         

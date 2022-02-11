@@ -4,7 +4,6 @@ package Java;
 
 import systemPathsCollector.*;
 import java.io.*;
-import java.nio.*;
 import java.nio.file.LinkOption;
 
 
@@ -42,19 +41,29 @@ public class Main
         
         ideaProjectsFolder = "D:\\Users\\Hårddisken\\IdeaProjects";
         lft = new LogForTesting();
-        prn = new Printer();
+    
+    
+        
         sfc = new SystemFilesContainer();
-    
-    
         
         lft.startTimer("reading from system");
         sfc.readFromSystem();
-        lft.endTimer("reading from system", "readTime");
-        
-   
+        lft.endTimer("reading from system", "readTimeMulti", true);
         
         results = sfc.stringArrayAllPaths();
-        lft.printListLog(results, "allPaths", "printing all paths");
+        lft.printListLog(results, "allPathsMulti", "printing all paths", true);
+    
+    
+    
+        sfc = new SystemFilesContainer();
+        sfc.setNoThreads();
+        
+        lft.startTimer("reading from system");
+        sfc.readFromSystem();
+        lft.endTimer("reading from system", "readTimeSingle",true);
+    
+        results = sfc.stringArrayAllPaths();
+        lft.printListLog(results, "allPathsSingle", "printing all paths", true);
         
     
     }
