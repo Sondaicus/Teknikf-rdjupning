@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-02-11T15:05:06.472Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27" etag="h8VGyYUcUHQgrqP53yV0" version="15.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-02-11T16:27:51.157Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27" etag="8WFIZj_nAMuI2fcBIhZu" version="15.1.4" type="github">
   <diagram id="9FSf1cND53OiheEwe6pJ" name="Page-1">
     <mxGraphModel dx="3229" dy="2422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -31,8 +31,8 @@
         <mxCell id="NwcDof6OaWUbzFEYgz7M-41" value="class OptionSettingsCalculation_MultiThread extends OptionSettingsCalculation" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
           <mxGeometry x="1122.5" y="300" width="475" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="NwcDof6OaWUbzFEYgz7M-42" value="//Inför möjlighet att söka systemet med flera trådar samtidigt för att det skall gå fortare" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1122.5" y="330" width="390" height="40" as="geometry" />
+        <mxCell id="NwcDof6OaWUbzFEYgz7M-42" value="//Denna underklass innehåller funktioner för att med en slinga skapa up nya objekt av klassen &quot;ThreadSearcher&quot; . För varje slinga skapas ett bestämt antal &quot;ThreadSearcher&quot; upp, ders funktion beskrivs i rutan ovan." style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1122.5" y="330" width="467.5" height="40" as="geometry" />
         </mxCell>
         <mxCell id="NwcDof6OaWUbzFEYgz7M-44" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.553;exitY=0.007;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="Yxg5fDyb3hsvepMrTCq3-11" target="NwcDof6OaWUbzFEYgz7M-41" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -74,7 +74,7 @@
           <mxGeometry x="440" y="60" width="30" height="20" as="geometry" />
         </mxCell>
         <mxCell id="NwcDof6OaWUbzFEYgz7M-79" value="&lt;b style=&quot;color: rgb(0 , 0 , 0) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 12px ; font-style: normal ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)&quot;&gt;N.1&lt;/b&gt;" style="text;whiteSpace=wrap;html=1;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="1220" y="230" width="40" height="30" as="geometry" />
+          <mxGeometry x="1190" y="240" width="40" height="30" as="geometry" />
         </mxCell>
         <mxCell id="5ahbbkNgGcMMDFO8V_Gp-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.587;entryY=-0.005;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=block;endFill=0;" edge="1" parent="1" source="5ahbbkNgGcMMDFO8V_Gp-1" target="NwcDof6OaWUbzFEYgz7M-41">
           <mxGeometry relative="1" as="geometry" />
@@ -89,15 +89,21 @@
           <mxGeometry y="30" width="450" height="190" as="geometry" />
         </mxCell>
         <mxCell id="5ahbbkNgGcMMDFO8V_Gp-2" value="class OptionSettingsCalculation_SingleThread extends OptionSettingsCalculation implements OptionsAndSearch" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-          <mxGeometry x="-110" y="240" width="620" height="160" as="geometry" />
+          <mxGeometry x="-110" y="240" width="610" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="5ahbbkNgGcMMDFO8V_Gp-11" value="&lt;span&gt;//Denna underklass innehåller funktioner för att rekursivt söka igenom datorns system en systemmapp i taget, vilket arbetar på bara en tråd som är standard för java.&amp;nbsp;&lt;br&gt;&lt;br&gt;//Klassen kommunicerar direkt med gränssnittet &quot;OptionsAndSearch&quot; som använder klassen &quot;CollectChildrenPaths&quot; för att kommunicera med systemets minnesmoduler.&lt;br&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="5ahbbkNgGcMMDFO8V_Gp-2">
+          <mxGeometry y="30" width="610" height="160" as="geometry" />
         </mxCell>
         <mxCell id="5ahbbkNgGcMMDFO8V_Gp-8" value="class ThreadSearcher extends Thread implements Runnable, OptionsAndSearch " style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-          <mxGeometry x="880" y="30" width="475" height="160" as="geometry" />
+          <mxGeometry x="850" y="10" width="450" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="5ahbbkNgGcMMDFO8V_Gp-18" value="//Denna klass är en underklass den klassen &quot;Thread&quot;, för att den skall kunna använda de flera trådalternativ som finns inuti klassen &quot;Thread&quot;, samt ha egna funktioner som lämpar sig För de systemsökningar som mitt program skall utföra.&lt;br&gt;&lt;br&gt;//Det kan finnas lika många av den i klassen &quot;&lt;span style=&quot;text-align: center&quot;&gt;OptionSettingsCalculation_MultiThread&lt;/span&gt;&quot; som det finns tillgängliga processorer för systemet.&lt;br&gt;&lt;br&gt;//För varje tillgänglig processor så hämtas innehållet från en mapp i taget med ett objekt av typen ThreadSeracher, vilket upprepas tills det inte finns några mappar kvar på systemet att söka igenom." style="text;whiteSpace=wrap;html=1;" vertex="1" parent="5ahbbkNgGcMMDFO8V_Gp-8">
+          <mxGeometry y="30" width="450" height="180" as="geometry" />
         </mxCell>
         <mxCell id="5ahbbkNgGcMMDFO8V_Gp-9" value="&lt;font color=&quot;#000000&quot;&gt;&lt;b&gt;1.1&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#00CC00;" vertex="1" parent="1">
           <mxGeometry x="860" y="-40" width="30" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="5ahbbkNgGcMMDFO8V_Gp-10" value="" style="endArrow=none;html=1;rounded=0;exitX=0.335;exitY=0.002;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="NwcDof6OaWUbzFEYgz7M-41">
+        <mxCell id="5ahbbkNgGcMMDFO8V_Gp-10" value="" style="endArrow=none;html=1;rounded=0;exitX=0.335;exitY=0.002;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="NwcDof6OaWUbzFEYgz7M-41" target="5ahbbkNgGcMMDFO8V_Gp-8">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1016.7250000000004" y="346.8000000000002" as="sourcePoint" />
             <mxPoint x="1130" y="190" as="targetPoint" />
